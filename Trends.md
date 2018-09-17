@@ -1,6 +1,6 @@
-#IT系の情報サイトを要約したりメモしたり
+# IT系の情報サイトを要約したりメモしたり
 ---
-###フリーランスエンジニアに対する5つの誤解(09/17/18)  
+### フリーランスエンジニアに対する5つの誤解(09/17/18)  
 [Source](https://qiita.com/poly_soft/items/c494f3df80738a3daf1c?utm_campaign=popular_items&utm_medium=twitter&utm_source=dlvr.it)  
 ```
 1.×自分で顧客や案件を探す 
