@@ -1,5 +1,13 @@
 # IT系の情報サイトを要約したりメモしたり
 ---
+### アボガド6 - うつろ(09/19/18)
+[Source](https://twitter.com/avogado6/status/1042045762102812674)
+```
+アボガド6さんの作品は奥が深すぎて込められたすべてを理解するのは難しい。
+でも、朝起きれないのはこんな感じなんだねと思った。
+今日は酔ってるので適当になった。おわり。
+```
+---
 ### フリーランスエンジニアに対する5つの誤解(09/17/18)  
 [Source](https://qiita.com/poly_soft/items/c494f3df80738a3daf1c?utm_campaign=popular_items&utm_medium=twitter&utm_source=dlvr.it)  
 ```
