@@ -1,5 +1,21 @@
 # IT系の情報サイトを要約したりメモしたり
 ---
+### iPhone XS/XS Maxとかが発売(09/21/18)
+[Source](https://japanese.engadget.com/2018/09/20/iphone-xs-xs-max-apple-watch-series-4-apple-250/)
+```
+今日発売しましたね。
+雨なのに表参道では朝早くから250人ものApple信者が並んでいたらしいです。こわい
+さて自分はAndroid信者なので買うことは今後一切無いと思いますが、今持っているスマホがそろそろ
+古くなってきました。スペックは、
+　機種: SHV35
+    Android: 8.0.0, RAM: 2GB, ROM: 8GB
+2018年夏モデルですが、限界を感じています...。
+機種変しないとな...。
+でも正規販売店だと異様なまでに高いしSIMフリー製のスマホにしようかな。
+てかデータの移行かったるいな。
+とかいろいろ葛藤していました。おわり。
+```
+---
 ### Convolutional Neural Networkとは何なのか(09/20/18)
 [Source](https://qiita.com/icoxfog417/items/5fd55fad152231d706c2)
 ```
