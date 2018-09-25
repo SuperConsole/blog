@@ -1,5 +1,18 @@
 # IT系の情報サイトを要約したりメモしたり
 ---
+### PythonでWebAPIを叩いた(09/25/18)
+[Source](https://qiita.com/shunyooo/items/b408b8d61f9f73b21da7)
+```
+使ったライブラリ: Requests(Python), json(Python3)
+復習した技術: RESTful API, JSON, KVS, GET/POST
+
+かなり前に「データを集める技術 最速で作るスクレイピング&クローラー (Informatics&IDEA) / 佐々木 拓郎」
+を本屋で立ち読みした時からWebスクレイピングに興味があり、なかなか一歩踏み出せない状況下にいた。
+そして今日、スクレイピングをし...てはいないがWeb APIを叩いた。
+
+楽しかった。おわり。
+```
+---
 ### 社会人になって6年たった自分が後悔していること・良かったことまとめ(09/24/18)
 [Source](https://qiita.com/hirossyi73/items/3ceee03a82d66a35b9c1)
 ```
