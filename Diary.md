@@ -5,7 +5,6 @@
 ```
 使ったライブラリ: Requests(Python), json(Python3)
 復習した技術: RESTful API, JSON, KVS, GET/POST
-
 かなり前に「データを集める技術 最速で作るスクレイピング&クローラー (Informatics&IDEA) / 佐々木 拓郎」
 を本屋で立ち読みした時からWebスクレイピングに興味があり、なかなか一歩踏み出せない状況下にいた。
 そして今日、スクレイピングをし...てはいないがWeb APIを叩いた。
