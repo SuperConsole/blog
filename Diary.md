@@ -1,5 +1,10 @@
 # 9月: 日々の歴史を作る by  Nietzsche
 ---
+## 9月を終えて(09/30/18)
+```
+
+```
+---
 ### 「勉強会に行ったら人生変わったwww」を読んだ(09/29/18)
 [Source](https://qiita.com/suthio/items/26aebea0c3bac9400bbe)
 ```
