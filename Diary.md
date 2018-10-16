@@ -18,7 +18,7 @@ Session.1「HelmとService Brokerで始める検証用環境自動構築」
 
 Session.2「Cloud Native Buildpacksで面倒なコンテナイメージの作成を自動化する」  
 　・従来のDockerイメージの作成・・・Dockerfileをポチポチ打ち込んでビルド -> 手間がかかる  
-    ・HerokuやCloud FoundryはpushされたリソースからPaaS上で動作可能なコンテナを生成し、実行する"Build Pack"という仕組みを持 　っている  
+    ・HerokuやCloud FoundryはpushされたリソースからPaaS上で動作可能なコンテナを生成し、実行する"Build Pack"という仕組みを持っている  
     ・この技術をDockerイメージ生成に応用させたのが"Cloud Native Buildpacks"というサービス
     　-> pushされたリソースをもとにDockerイメージを作成、提供する  
         -> packコマンドで多彩な言語を自動判定して実行環境を構築する機能も(複合するアプリの対応もしている)  
