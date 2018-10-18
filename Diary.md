@@ -14,7 +14,7 @@
  
 詳細(量子コンピュータ勉強会):  
  - 予習はしたものの途中から何いってるのかわからなかった。  
- - ただ、Googleが古典ビット用のゲートを量子ゲートに変える(OpenFermion)[https://github.com/quantumlib/OpenFermion] があることを知れた。  
+ - ただ、Googleが古典ビット用のゲートを量子ゲートに変える (OpenFermion)[https://github.com/quantumlib/OpenFermion] があることを知れた。  
  - 他にも主催企業の強みとなるサービス(Python3ライブラリ)やIBM, D-wave関連のPaaSに関する情報を知れた。  
  - 登壇者が強い人で聞いていてモチベが上がった(ただ分野が分野だけに取り組むのに勇気がいる?)
   
