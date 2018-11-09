@@ -1,5 +1,8 @@
 [<-](./old2018/Diary102018.md) November ->
 # 11月: 何かを創る
+### Diverse Systemの曲を作る(11/09/18)
+
+---
 ### Web開発の統合環境をAtom IDEからBracketsに移行するかも?(11/08/18)
 今まで家でも外出先でも**Atom IDE**を用いてWebの開発をしていたが、いくつか不便が生じた。
 Atom IDEの不便さ
