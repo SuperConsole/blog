@@ -1,5 +1,30 @@
 [<-](./old2018/Diary102018.md) November ->
 # 11月: 何かを創る
+## エンジニアの情報収集法の見直し(11/21/18)
+[エンジニアの情報収集法まとめ](https://qiita.com/nesheep5/items/e7196ba496e59bb2aa28)の記事を見つけてふと思った。「自分の今やっている情報収集のやりかたでITの時勢を網羅しているか？」。なので見直しをしてみる。
+
+「今追っているサイト」
+ - GIGAZINE
+ - IT Media
+ - Gizmodo
+ - IT 速報
+ - TechCrunch
+ - Computer Music(これは趣味)
+ - Canva
+ - Developers.IO
+ - AWS, Google, Azure, などの公式ブログ
+ - はてなブックマーク
+ etc...
+
+こんな感じです。[Qiitaブログ内](https://qiita.com/nesheep5/items/e7196ba496e59bb2aa28)と比べると、ITニュース系は網羅できているがイベント系の収集サイト・技術系ブログらへんが足りてない気がする。情勢を把握していても実装の面に対するトピックやベストプラクティス・アンチパターンとかがあまり収集できていない。実装の面での情報不足...。常に開発をして臨時的に収集すればよいのだが、それが習慣づいていないのがネックだなって...。ここらへんはQiitaかなーって思っている節はあるが...。取りあえず比較して新しく追ってみようかなと
+
+ - [雑食系エンジニアTV](https://www.youtube.com/channel/UC_HLK-ksslL-Z_2wiIZDlMg/videos)をチャンネル登録
+ - 自分の興味のある言語や環境を見直す
+ - ベストプラクティス
+ 
+あたりを実施して、随時Google先生からフォーカスを当てた情報収集をしていこうかなと。思いました。おわり。
+
+---
 ## ...(11/19,20/18)
 ...nothing. I just wanna have a rest.so, all time I watch YouTube enjoyed entertainments!!
 there is a good day in my life like this...
