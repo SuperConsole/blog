@@ -1,5 +1,31 @@
 # [SpCn-Diary](https://github.com/SuperConsole/SpCn-Diary/tree/master)  
 2019年の目標:「探求し続ける」
+## VPNGate with Proxyを用いた通信の秘匿(06/15/19)
+　先日にTorネットワークを用いてIPアドレスを隠蔽する方法を記事にしたが、今回は通信自体の隠蔽について。VPNGate with Proxyを用いることでVPNでの通信を可能にし、情報の盗聴を防ぐことができます。また、末端接続先(Webサイトなど)からはVPNサーバのIPアドレスしか見られない状態になります。  
+ しかしVPNサーバが情報を開示した場合はIPアドレスが丸わかりになるので悪用厳禁。  
+  
+通信方法(Debian9):  
+　1. VPNGate With Proxyに必要なアプリケーションをインストールする  
+　　$apt install gir1.2-appindicator3-0.1 gir1.2-notify-0.7 python-gobject  
+    
+　2. VPNGate with Proxyをインストール(クローン→解凍)する(・・・部はGithubのドメイン)  
+　　$git clone ・・・/Dragon2fly/vpngate-with-proxy  
+　　(\*クローンしたディレクトリ配下にアプリケーションがある)   
+  
+　3. VPNGate with Proxyを起動する  
+　　$./vpngate-with-proxy/run  
+  
+　4. 一覧から接続したいサーバを選択し、番号をコマンドラインに入力する  
+ 　　(サーバのindexが0の場合) >>0  
+   
+　5. コネクションの確立後、IPアドレスがサーバのものになっているか確認する  
+　　$curl -sL ipinfo.io  
+ 
+　以上。また、VPN Gateway with Proxyは筑波大学が提供するサービス「VPN Gate」の非公式Linuxクライアントである。利用する際は自己責任で。  
+   
+　この記事を書く上で本当は「VPN Over Tor」というTorを経由した後にVPN通信を行ってインターネットに接続する環境を構築したかったがTor経由でのVPN Gateway with Proxyのサーバへの接続がうまくいかずに断念した。原因は今も模索中であるがTorネットワークは一般的なプロキシとはやや違う仕組みで動いているのでいろいろ設定をする必要があると考えている。保証のきいたVPNサービスを利用するのが無難だが向きになっている自分がいるので一つ一つ自分のペースで対処していきます。次回はペネトレーションテストツールを使ってみたりしようかなと思っています。おわり。
+
+---
 ## 防衛のためのTorネットワーク(06/14/19)
 　Torとは、The Onion Routerの略でSOCKSプロキシを何重に経由することでIPアドレスの匿名性を向上させる技術を指します。もとは米軍により開発された技術ですが現在はTor Projectが管理運営をしています。IP匿名化の仕組みは説明すると長くなるので端的に言えば寄り道をしまくって経由するサーバごとにIPアドレスを書き換えるといった感じになりますね。また、SOCKSはTCPを包括するシステムなのでHTTP/HTTPSだけでなくTCP上で動作するプロトコルなら通信が可能です(もちろんUDPはできない)。  
   
@@ -18,7 +44,7 @@
   
 　調べてみたらTor Over VPNという言葉があるらしく、Torネットワークにアクセスする前に一度VPNを通す方法で、Torネットワークの入り口ですら送信元IPを隠蔽し、匿名性を高める方法だそう。フリーだとOpenVPNなどがありますがNordVPNというところが提供している「Tor Over Vpn」といった保証付きのサービスを使うのも手段としてありですね。  
   
- <img src="https://i.imgur.com/XddQXJd.jpg" width="100%" style="max-width:800px;">
+ <img src="https://i.imgur.com/XddQXJd.jpg" width="100%" style="max-width:900px;">
   
 遅延が大変なことになりそうだけど...。  
 あと、Torの話はしたもののダークウェブには興味ないです。本当に...。  
