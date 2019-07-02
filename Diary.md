@@ -25,14 +25,14 @@
   
 　 5. 攻撃側PCからDockerコンテナの32771番ポートにアクセス　　
 
-<img src="./src/img/CVE-2018-11776-poc-struts2.png" width="100%" style="max-width:400px;">  
+<img src="https://raw.githubusercontent.com/SuperConsole/SpCn-Diary/master/src/img/CVE-2018-11776-poc-struts2.png" width="100%" style="max-width:400px;">  
   
 　 6. URLの指定部(JSOC INSIGHTを参照)にOGNL文を挿入する([atucom.net](http://blog.atucom.net/2018/08/apache-struts-2-vulnerability-exploit.html)よりOSコマンドからOGNL文生成するPoCが公開されているのでこれを利用した。ウイルスに感染する恐れがあるので実行は自己責任)  
 　  $python ./a.py  
   
 　 7. OSインジェクションが行われ、攻撃側にて被害側内にある機密情報/etc/passwdファイル)の読み取りに成功していることを確認できる。  
 
-<img src="./src/img/CVE-2018-11776-poc-result.png" width="100%" style="max-width:600px;">  
+<img src="https://raw.githubusercontent.com/SuperConsole/SpCn-Diary/master/src/img/CVE-2018-11776-poc-result.png" width="100%" style="max-width:600px;">  
   
 　以上。数値計算式を挿入するPoCはザッと調べただけでもかなりのサイトに載っていたが実際に悪用可能なOGNL文を挿入するコードを公開するJSOC INSIGHTは一味違うなと実感しました(誰目線)。話は変わるのですが、以前[PoCに見せかけて本当にリモートで実行されるやつ](https://web.archive.org/web/20190702145836/https:/twitter.com/x64koichi/status/1141635520419602432/photo/1)が巷で話題になりましたね。こういうことが少なからずあるのでPoCを使って検証するにはソースコードに目を通すことが大前提です。  
 　今回の環境ではtruts.xmlの「alwaysSelectFullNamespace」を無効にしたことでONGL文によるOSインジェクションが効かなくなったこと、バージョンアップによって脆弱性が解消されたことを確認しました。セキュリティ、日頃から意識していきましょう...。おわり。
