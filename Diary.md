@@ -1,5 +1,44 @@
 # [SpCn-Diary](https://github.com/SuperConsole/SpCn-Diary/tree/master)  
 2019年の目標:「探求し続ける」
+## Apache Struts 2におけるリモートコード実行[CVE-2018-11776]の脆弱性検証(07/02/19)
+　某セキュリティ会社が発行している「JSOC INSIGHT」のvol.22にて「Apache Struts 2におけるリモートコード実行の脆弱性」が取り上げられていたので持ち前の情報収集力を生かしてこの脆弱性を再現・検証したのでそれをまとめます。
+まず、この脆弱性はURLに数値計算式またはOSコマンドを実行するOGNL文をインジェクションすることで悪用されます。Apache Struts2の設定ファイルである「struts.xml」において、  
+　 ・「alwaysSelectFullNamespace」をtrueにしている  
+　 ・「actionタグ」または「urlタグ」が含まれている  
+  
+これらの条件をいずれも満たす場合に影響を受けます。今回の検証ではこの脆弱性を持つApache Struts 2.3.12内蔵のDockerコンテナ(piesecurity/apache-struts2-cve-2017-5638、以下Dockerコンテナ)を用意し、struts.xmlに設定を追加したのちにPoC(python)を実行し、サーバ内の機密情報(ここでは/etc/passwdファイル)を読み取るまでの流れを示す。  
+  
+　方法([hook-s3c氏のPoC](https://github.com/hook-s3c/CVE-2018-11776-Python-PoC)より):  
+　 1. Dockerコンテナ(piesecurity/apache-struts2-cve-2017-5638)をdockerhubよりプル  
+　  $docker pull piesecurity/apache-struts2-cve-2017-5638  
+  
+　 2. コンテナをポート32771番に指定しデタッチモードて起動//被害側  
+　  $docker run -d -p 32771:8080 piesecurity/apache-struts2-cve-2017-5638  
+  
+　 3.  エディタ(vim)をインストールした後設定ファイルを編集する(内容はリンク先参照,設定ファイルの様式にしたがって追加すること)  
+　  $vim /usr/local/tomcat/webapps/ROOT/WEB-INF/classes/struts.xml  
+  
+　 4. Apache Struts2(Dockerコンテナ)を再起動  
+　  $exit  
+　  $docker restart [コンテナID]  
+　  $docker exec -it [コンテナID] bash  
+  
+　 5. 攻撃側PCからDockerコンテナの32771番ポートにアクセス　　
+
+<img src="./src/img/CVE-2018-11776-poc-struts2.png" width="100%" style="max-width:400px;">  
+  
+　 6. URLの指定部(JSOC INSIGHTを参照)にOGNL文を挿入する([atucom.net](http://blog.atucom.net/2018/08/apache-struts-2-vulnerability-exploit.html)よりOSコマンドからOGNL文生成するPoCが公開されているのでこれを利用した。ウイルスに感染する恐れがあるので実行は自己責任)  
+　  $python ./a.py  
+  
+　 7. OSインジェクションが行われ、攻撃側にて被害側内にある機密情報/etc/passwdファイル)の読み取りに成功していることを確認できる。  
+
+<img src="./src/img/CVE-2018-11776-poc-result.png" width="100%" style="max-width:600px;">  
+  
+　以上。数値計算式を挿入するPoCはザッと調べただけでもかなりのサイトに載っていたが実際に悪用可能なOGNL文を挿入するコードを公開するJSOC INSIGHTは一味違うなと実感しました(誰目線)。話は変わるのですが、以前[PoCに見せかけて本当にリモートで実行されるやつ](https://web.archive.org/web/20190702145836/https:/twitter.com/x64koichi/status/1141635520419602432/photo/1)が巷で話題になりましたね。こういうことが少なからずあるのでPoCを使って検証するにはソースコードに目を通すことが大前提です。  
+　今回の環境ではtruts.xmlの「alwaysSelectFullNamespace」を無効にしたことでONGL文によるOSインジェクションが効かなくなったこと、バージョンアップによって脆弱性が解消されたことを確認しました。セキュリティ、日頃から意識していきましょう...。おわり。
+
+
+---
 ## VPNGate with Proxyを用いた通信の秘匿(06/15/19)
 　先日にTorネットワークを用いてIPアドレスを隠蔽する方法を記事にしたが、今回は通信自体の隠蔽について。VPNGate with Proxyを用いることでVPNでの通信を可能にし、情報の盗聴を防ぐことができます。また、末端接続先(Webサイトなど)からはVPNサーバのIPアドレスしか見られない状態になります。  
  しかしVPNサーバが情報を開示した場合はIPアドレスが丸わかりになるので悪用厳禁。  
