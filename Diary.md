@@ -1,5 +1,9 @@
 # [SpCn-Diary](https://github.com/SuperConsole/SpCn-Diary/tree/master)  
 2019年の目標:「探求し続ける」
+## Vulsを用いた脆弱性情報DBとの照合および脆弱性検査(07/09/19)
+
+
+---
 ## Apache Struts 2におけるリモートコード実行[CVE-2018-11776]の脆弱性検証(07/02/19)
 　某セキュリティ会社が発行している「JSOC INSIGHT」のvol.22にて「Apache Struts 2におけるリモートコード実行の脆弱性」が取り上げられていたので持ち前の情報収集力を生かしてこの脆弱性を再現・検証したのでそれをまとめます。
 まず、この脆弱性はURLに数値計算式またはOSコマンドを実行するOGNL文をインジェクションすることで悪用されます。Apache Struts2の設定ファイルである「struts.xml」において、  
@@ -12,7 +16,7 @@
 　 1. Dockerコンテナ(piesecurity/apache-struts2-cve-2017-5638)をdockerhubよりプル  
 　  $docker pull piesecurity/apache-struts2-cve-2017-5638  
   
-　 2. コンテナをポート32771番に指定しデタッチモードて起動//被害側  
+　 2. コンテナをポート32771番に指定しデタッチモードにて起動//被害側  
 　  $docker run -d -p 32771:8080 piesecurity/apache-struts2-cve-2017-5638  
   
 　 3.  エディタ(vim)をインストールした後設定ファイルを編集する(内容はリンク先参照,設定ファイルの様式にしたがって追加すること)  
