@@ -12,7 +12,7 @@
 　 1. Dockerコンテナ(piesecurity/apache-struts2-cve-2017-5638)をdockerhubよりプル  
 　  $docker pull piesecurity/apache-struts2-cve-2017-5638  
   
-　 2. コンテナをポート32771番に指定しデタッチモードて起動//被害側  
+　 2. コンテナをポート32771番に指定しデタッチモードにて起動//被害側  
 　  $docker run -d -p 32771:8080 piesecurity/apache-struts2-cve-2017-5638  
   
 　 3.  エディタ(vim)をインストールした後設定ファイルを編集する(内容はリンク先参照,設定ファイルの様式にしたがって追加すること)  
