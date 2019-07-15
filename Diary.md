@@ -1,6 +1,16 @@
 # [SpCn-Diary](https://github.com/SuperConsole/SpCn-Diary/tree/master)  
 2019年の目標:「探求し続ける」
-## OWASP ZAPを用いたウェブアプリ脆弱性診断及びweb通信ログの収集(07/15/19)
+## OWASP ZAPを用いたWebサイトの脆弱性診断(07/15/19)
+　久しぶりの投稿。今回はOWASP ZAPを用いてWebサイトの脆弱性診断を行ったのでその流れと結果を報告します。  
+　OWASP ZAPはOSSで提供される脆弱性診断を行う為のアプリケーションです。機能が概ねGUIで提供されていて容易に診断、結果のフィードバックが行えます。  
+　流れ: 
+　　1. 以下の公式リポジトリの「wiki」タブからダウンロード -> OSに合わせて適宜インストールする  
+　　　https://github.com/zaproxy/zaproxy  
+  
+　　2. OWASP ZAPを使用するためにFirefox等のブラウザでプロキシの設定を行う(以下は例)  
+　　　proxy: 127.0.0.1 / port: 57777  
+  
+　　3. OWASP ZAPを起動、
 
 ---
 ## Apache Struts 2におけるリモートコード実行[CVE-2018-11776]の脆弱性検証(07/02/19)
