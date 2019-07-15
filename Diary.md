@@ -4,9 +4,9 @@
 　久しぶりの投稿。今回はOWASP ZAPを用いてWebサイトの脆弱性診断を行ったのでその流れと結果を報告します。  
 　OWASP ZAPはOSSで提供される脆弱性診断を行う為のアプリケーションです。機能が概ねGUIで提供されていて容易に診断、結果のフィードバックが行えます。動的スキャンを用いたのでその流れを示します。  
  
-　流れ: 
+　流れ:   
 　　1. 以下の公式リポジトリの「wiki」タブからダウンロード -> OSに合わせて適宜インストールする  
-　　　https://github.com/zaproxy/zaproxy  
+　　　- https://github.com/zaproxy/zaproxy  
   
 　　2. OWASP ZAPを使用するためにFirefox等のブラウザでプロキシの設定を行う(以下は例)  
 　　　proxy: 127.0.0.1 / port: 57777  
