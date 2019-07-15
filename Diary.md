@@ -24,7 +24,10 @@
 
 <img src="https://raw.githubusercontent.com/SuperConsole/SpCn-Diary/master/src/img/OWASP-ZAP-result-alert.png" width="100%" style="max-width:381px;">  
   
-　次は気が向いたら似たようなアプリであるBurp Suiteに触れた所感を書こうかなーと思っていたりいなかったりですね。おわり。
+　次は気が向いたら似たようなアプリであるBurp Suiteに触れた所感を書こうかなーと思っていたりいなかったりですね。おわり。  
+  
+　＊追記: HTTPヘッダの設定とセキュリティについていい感じのサイトを見つけたのでメモ  
+　セキュリティを強化する7つの便利なHTTPヘッダ / https://devcentral.f5.com/s/articles/7http  
  
 ---
 ## Apache Struts 2におけるリモートコード実行[CVE-2018-11776]の脆弱性検証(07/02/19)
