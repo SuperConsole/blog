@@ -1,5 +1,30 @@
 # [SpCn-Diary](https://github.com/SuperConsole/SpCn-Diary/tree/master)  
 2019年の目標:「探求し続ける」
+## Burp Suiteで構築するHTTPSプロキシ(07/24/19)
+　前回はOWASP ZAPを使って自前で運用しているWebサイトの脆弱性を診断しました。  
+今回はBurp Suiteを用いてローカルプロキシを立ち上げ、中継されるリクエスト/レスポンスを傍受または改竄できるかを試してみます。  
+  
+　流れ:  
+　　1. https://portswigger.net/burp からBurp Suiteをダウンロード、適宜インストール  
+　　　　＊Kali Linuxユーザは既にBurp Suiteが同梱されているのでそれを用いるてもよい  
+    
+　　2. Burp Suiteを起動した後にブラウザ(Firefox等)で「127.0.0.1:8080」をプロキシに登録する  
+  
+　　3. ブラウザで「127.0.0.1:8080」にアクセス、Burpの証明書をインポートする  
+  
+　　4. 以降通信内容がすべてプロキシに記録される  
+ <img src="https://raw.githubusercontent.com/SuperConsole/SpCn-Diary/master/src/img/Burp-Suite-Https-log.png" width="100%" style="max-width:400px;">
+  
+　　5. proxyタブの「Intercept is on」の状態時には通信がプロキシで一度停止  
+　　　　内容を確認したり必要によって書き換えたり(悪用厳禁)して通信再開「Forward」することが可能  
+
+　今回はBurp Suiteでローカルプロキシを立ち上げ、Burp証明書を用いてHTTPSの通信に割り込んでみました。  
+この機能はOWASP ZAPでも使用可能らしいですが、個人的にこっちのが使いやすいかなーと思います。  
+　ところで、OWASP ZAPとBurp Suiteの用途の違いが曖昧でよくわかっていなかった自分ですが調べたところBurp SuiteはOSSではないらしいです。今回使用した無料版はCommunity版、有料版はEnterprise版が$3999/年、Professional版が$399/年。個人ではやや厳しい価格なのかなと思いますが商用利用などを考えている場合、有料版でサポートがしっかりしていると安心なのかなと。OSSの数少ないデメリットなので。  
+　次回からはWebの脆弱性診断から離れてネットワークやOS, ミドルウェアらへんに焦点を当てて行きたいところです。  
+　...ブログと日記を分割しなきゃな...。おわり。
+
+---
 ## OWASP ZAPを用いたWebサイトの脆弱性診断(07/15/19)
 　久しぶりの投稿。今回はOWASP ZAPを用いてWebサイトの脆弱性診断を行ったのでその流れと結果を報告します。  
 　OWASP ZAPはOSSで提供される脆弱性診断を行う為のアプリケーションです。機能が概ねGUIで提供されていて容易に診断、結果のフィードバックが行えます。動的スキャンを用いたのでその流れを示します。  
