@@ -13,7 +13,7 @@
 　　3. ブラウザで「127.0.0.1:8080」にアクセス、Burpの証明書をインポートする  
   
 　　4. 以降通信内容がすべてプロキシに記録される  
- <img src="https://raw.githubusercontent.com/SuperConsole/SpCn-Diary/master/src/img/Burp-Suite-Https-log.png" width="100%" style="max-width:400px;">
+ <img src="https://raw.githubusercontent.com/SuperConsole/SpCn-Diary/master/src/img/Burp-Suite-Https-Log.png" width="100%" style="max-width:400px;">
   
 　　5. proxyタブの「Intercept is on」の状態時には通信がプロキシで一度停止  
 　　　　内容を確認したり必要によって書き換えたり(悪用厳禁)して通信再開「Forward」することが可能  
