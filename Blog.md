@@ -170,21 +170,6 @@
 
 
 ---
-## JavaによるIteratorパターンの実装(04/11/19)
-　Iteratorパターンとは  
- 
-　1.　数え上げたいオブジェクト(以下、具象クラスBookShelfを例として挙げる)をAggregate(集合体)インターフェースとして実装。Aggregate内で実際に数え上げるIteratorを宣言。すなわち、Aggregateの実装であるBookShelf内にIteratorの実装であるBookShelfIteratorを宣言する。BookShelf内の各Book(数え上げられるもの, 単体)は、BookShelfの持つインターフェース(getLength:本の許容数, getBookAt:本のインデックス)によってBookShelfIteratorからアクセス可能であり、数え上げを実行する際にBookShelfインスタンスを宣言し、その中のIterator生成関数を実行し、繰り返し処理を行えば良い。  
- 
-　2.　Aggregate(Iteratorを内部に宣言)->Iterator(hasNextとnextを保持) //抽象クラス  
-　    BookShelf(Iteratorを内部に宣言)->BookShelfIterator(hasNextとnextを保持) //具象クラス
-
-　本当にメモをベタ貼りしただけです。数え上げを行う際に数える対象が配列かVectorか他の型に従った集合かによって繰り返し処理の内容が異なってしまう問題を解決するデザインパターンです。これにより、例えば、開発当初は配列で宣言していた集合を可変にしたいと案が出てVectorにした場合でも簡単に改修ができ工数を削減できるメリットがあります。  
- 
-　便利ですね！実装を~~Python~~Javaで書いて別のリポジトリにあげようかなと考えています。実装します。おわり。
-
-※追記(04/12/19)Pythonってインターフェースの実装向いていないことを実感したのでちゃんとJavaで実装します。
-
----
 ## Metasploit+docker(+nmap)で試すHeartbleed(04/10/19)
 　Heartbleedというメモリリークから個人・機密情報を漏洩させる脆弱性。頑張ればこの脆弱性を持ったサーバーをイントラネットに立てて擬似攻撃できるんじゃね？って思ったのでやってみました。サーバーを立てるのにdockerを使い、コンテナイメージは[hmlio/vaas-cve-2014-0160
 ](https://hub.docker.com/r/hmlio/vaas-cve-2014-0160/)を使用します(VaaSなんて言葉があるのな...)。以下に手順記載しますー  
