@@ -1,5 +1,6 @@
 # [SpCn-Blog](https://github.com/SuperConsole/SpCn-Diary/tree/master)  
-2019年の目標:「探求し続ける」
+Blog: セキュリティ・ハッキング・Tor・ダークウェブなど  
+
 ## Burp Suiteで構築するHTTPSプロキシ(07/24/19)
 　前回はOWASP ZAPを使って自前で運用しているWebサイトの脆弱性を診断しました。  
 今回はBurp Suiteを用いてローカルプロキシを立ち上げ、中継されるリクエスト/レスポンスを傍受または改竄できるかを試してみます。  
@@ -65,7 +66,7 @@
   
 　方法([hook-s3c氏のPoC](https://github.com/hook-s3c/CVE-2018-11776-Python-PoC)より):  
 　 1. Dockerコンテナ(piesecurity/apache-struts2-cve-2017-5638)をdockerhubよりプル  
-　  $docker pull piesecurity/apache-struts2-cve-2017-5638  
+   $docker pull piesecurity/apache-struts2-cve-2017-5638  
   
 　 2. コンテナをポート32771番に指定しデタッチモードにて起動//被害側  
 　  $docker run -d -p 32771:8080 piesecurity/apache-struts2-cve-2017-5638  
@@ -166,21 +167,6 @@
 余談:  
 　ちなみに今日はデジタル署名とか認証まわりも学習していて、ネットサーフィンしてたら本物の"オレオレ証明書"のサイトを見つけました。でもChromeがちゃんと警告出してくれたのですぐに気づきました。詳細で確認するとルート証明書があからさまに怪しいドメインで面白かったです。以上。おわり。
 
-
----
-## JavaによるIteratorパターンの実装(04/11/19)
-　Iteratorパターンとは  
- 
-　1.　数え上げたいオブジェクト(以下、具象クラスBookShelfを例として挙げる)をAggregate(集合体)インターフェースとして実装。Aggregate内で実際に数え上げるIteratorを宣言。すなわち、Aggregateの実装であるBookShelf内にIteratorの実装であるBookShelfIteratorを宣言する。BookShelf内の各Book(数え上げられるもの, 単体)は、BookShelfの持つインターフェース(getLength:本の許容数, getBookAt:本のインデックス)によってBookShelfIteratorからアクセス可能であり、数え上げを実行する際にBookShelfインスタンスを宣言し、その中のIterator生成関数を実行し、繰り返し処理を行えば良い。  
- 
-　2.　Aggregate(Iteratorを内部に宣言)->Iterator(hasNextとnextを保持) //抽象クラス  
-　    BookShelf(Iteratorを内部に宣言)->BookShelfIterator(hasNextとnextを保持) //具象クラス
-
-　本当にメモをベタ貼りしただけです。数え上げを行う際に数える対象が配列かVectorか他の型に従った集合かによって繰り返し処理の内容が異なってしまう問題を解決するデザインパターンです。これにより、例えば、開発当初は配列で宣言していた集合を可変にしたいと案が出てVectorにした場合でも簡単に改修ができ工数を削減できるメリットがあります。  
- 
-　便利ですね！実装を~~Python~~Javaで書いて別のリポジトリにあげようかなと考えています。実装します。おわり。
-
-※追記(04/12/19)Pythonってインターフェースの実装向いていないことを実感したのでちゃんとJavaで実装します。
 
 ---
 ## Metasploit+docker(+nmap)で試すHeartbleed(04/10/19)
