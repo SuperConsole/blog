@@ -1,5 +1,3 @@
-  
-  
 # [SpCn-Blog](https://github.com/SuperConsole/SpCn-Diary/tree/master)  
 Blog: セキュリティ・ハッキング・Tor・ダークウェブなど  
 
