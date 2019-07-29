@@ -1,5 +1,6 @@
 # [SpCn-Blog](https://github.com/SuperConsole/SpCn-Diary/tree/master)  
-2019年の目標:「セキュリティで食べていける人材になる」
+Blog: セキュリティ・ハッキング・Tor・ダークウェブなど  
+
 ## Burp Suiteで構築するHTTPSプロキシ(07/24/19)
 　前回はOWASP ZAPを使って自前で運用しているWebサイトの脆弱性を診断しました。  
 今回はBurp Suiteを用いてローカルプロキシを立ち上げ、中継されるリクエスト/レスポンスを傍受または改竄できるかを試してみます。  
