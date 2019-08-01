@@ -28,8 +28,8 @@ WhonixはTailsLinuxと同様にOS内の全通信を「Tor経由」で行うこ�
   
 　7. TorによるIP匿名化ができているか以下のサイトを用いるなどして検証する  
 　　・ Check Tor Project https://check.torproject.org/ 
-　　・ TorによりIPの匿名化が成功していれば「Congratulations.」から始まる文が表示される。
-<img src="https://raw.githubusercontent.com/SuperConsole/SpCn-Diary/master/src/img/tor-success-result.png" width="100%" style="max-width:342px;">
+　　・ TorによりIPの匿名化が成功していれば「Congratulations.」から始まる文が表示される。  
+<img src="https://raw.githubusercontent.com/SuperConsole/SpCn-Diary/master/src/img/tor-success-result.jpg" width="100%" style="max-width:342px;">  
 
 今までOS内の全通信をTor経由にする場合、TailsLinuxを使用することで可能にしていた。もちろんKaliLinux内にTorをインストールすればIPアドレスの匿名化も可能ではあるがその場合前述の通りDNS漏れが生じる場合がある。  
 これはTorの実態であるSocks5プロキシがUDPに対応していないのが原因であるが、TailsLinuxを用いた場合、こういった非対応のトラフィックを全て遮断し、TCPのみの通信に強制することで解消される。  
