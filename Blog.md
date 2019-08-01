@@ -6,12 +6,35 @@ Blog: セキュリティ・ハッキング・Tor・仮想化技術など
 WhonixはTailsLinuxと同様にOS内の全通信を「Tor経由」で行うことでセキュアな通信を実現するOSです。TailsLinuxと異なる利点としては「Whonix Gateway」と呼ばれる中継機能を容易に構築できる点です。このWhonix Gatewayを構築し、任意の仮想マシンのデフォルトゲートウェイに設定することで全通信がTor経由になります。Torの問題点であるDNS漏れについてもTor以外の通信をWhonixが遮断することにより解消されている(これはTailsLinuxも同様)のも大きな利点になっています。  
   
 構築フロー:
-　1. 
+　1. 公式サイト(https://www.whonix.org/download/)からOVA(Open Virtualization Format)形式のファイルをダウンロード  
+　　＊GUI版とCLI版があるが好みに合わせてダウンロードすると良い  
+  
+　2. Virtual Box(以下、Vbox)にインポートする(特に設定は弄らずにインポートしても問題はない)  
+  
+　3. 起動し、初期設定を行ったのちに以下コマンドを入力し、アップデートの有無を調べる  
+　　$sudo apt-get update && sudo apt-get upgrade  
+  
+　4. コマンドの実行後、再起動する  
+　　＊rootのパスワードを変えることを推奨
+  
+　5. Vboxの一覧画面で、IP匿名化を行いたい仮想マシン(例としてKaliLinuxを挙げる)を選択  
+　　-> ネットワークのアダプタ1を内部ネットワークにし、Whonixを選択する  
+  
+　6. KaliLinuxを起動、OS内(ないし、検証のみであればFirefox ESRでも良い)で、  
+　　-> サブネットマスク: 255.255.192.0
+　　-> ゲートウェイ: 10.152.152.10  
+　　-> DNSサーバー: 10.152.152.10
+　　に設定、ネットワークインターフェースまたはOSを再起動して設定を適用する  
+  
+　7. TorによるIP匿名化ができているか以下のサイトを用いるなどして検証する  
+　　・ Check Tor Project https://check.torproject.org/ 
+  
+今までOS内の全通信をTor経由にする場合、TailsLinuxを使用することで可能にしていた。もちろんKaliLinux内にTorをインストールすればIPアドレスの匿名化も可能ではあるがその場合前述の通りDNS漏れが生じる場合がある。これはTorの実態であるSocks5プロキシがUDPに対応していないのが原因であるが、TailsLinuxを用いた場合、こういった非対応のトラフィックを全て遮断し、TCPのみの通信に強制することで解消される。しかし、KaliLinux内には豊富なエクスプロイトツールがはじめから入っており、これを活用しようと考えた場合、WhonixをTorゲートウェイとした内部ネットワークを構築することで利点を両立させているのだ。すごい。すごいWhonix。おわり。
   
 参考:  
-　・Whonixを使ってみる。 http://ebimanion.hateblo.jp/entry/2018/02/22/111100  
-　・Whonixで仮想マシンをTorで匿名化 https://blog.cheena.net/8  
-　・Check Tor Project https://check.torproject.org/  
+　・ Whonixを使ってみる。 http://ebimanion.hateblo.jp/entry/2018/02/22/111100  
+　・ Whonixで仮想マシンをTorで匿名化 https://blog.cheena.net/8  
+　・ Check Tor Project https://check.torproject.org/  
 
 ---
 </div></details>
