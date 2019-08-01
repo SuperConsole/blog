@@ -27,7 +27,7 @@ WhonixはTailsLinuxと同様にOS内の全通信を「Tor経由」で行うこ�
 　　に設定、ネットワークインターフェースまたはOSを再起動して設定を適用する  
   
 　7. TorによるIP匿名化ができているか以下のサイトを用いるなどして検証する  
-　　・ Check Tor Project https://check.torproject.org/ 
+　　・ Check Tor Project https://check.torproject.org/  
 　　・ TorによりIPの匿名化が成功していれば「Congratulations.」から始まる文が表示される。  
 <img src="https://raw.githubusercontent.com/SuperConsole/SpCn-Diary/master/src/img/tor-success-result.jpg" width="100%" style="max-width:342px;">  
 
