@@ -1,8 +1,7 @@
 # [SpCn-Blog](https://github.com/SuperConsole/SpCn-Diary/tree/master)  
 Blog: セキュリティ・ハッキング・Tor・仮想化技術など  
 
-## WhonixによるTorゲートウェイの構築および仮想マシンにおけるIPアドレス匿名化の検証(08/01/19)
-<details><summary>...</summary><div>
+<details><summary>WhonixによるTorゲートウェイの構築および仮想マシンにおけるIPアドレス匿名化の検証(08/01/19)</summary><div>
 WhonixはTailsLinuxと同様にOS内の全通信を「Tor経由」で行うことでセキュアな通信を実現するOSです。TailsLinuxと異なる利点としては「Whonix Gateway」と呼ばれる中継機能を容易に構築できる点です。このWhonix Gatewayを構築し、任意の仮想マシンのデフォルトゲートウェイに設定することで全通信がTor経由になります。Torの問題点であるDNS漏れについてもTor以外の通信をWhonixが遮断することにより解消されている(これはTailsLinuxも同様)のも大きな利点になっています。  
   
 構築フロー:
