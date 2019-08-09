@@ -1,9 +1,8 @@
 # [SpCn-Blog](https://github.com/SuperConsole/SpCn-Diary/tree/master)  
 Blog: セキュリティ・ハッキング・Tor・仮想化技術など  
 
-## WhonixによるTorゲートウェイの構築および仮想マシンにおけるIPアドレス匿名化の検証(08/01/19)
-<details><summary>...</summary><div>
-WhonixはTailsLinuxと同様にOS内の全通信を「Tor経由」で行うことでセキュアな通信を実現するOSです。TailsLinuxと異なる利点としては「Whonix Gateway」と呼ばれる中継機能を容易に構築できる点です。このWhonix Gatewayを構築し、任意の仮想マシンのデフォルトゲートウェイに設定することで全通信がTor経由になります。Torの問題点であるDNS漏れについてもTor以外の通信をWhonixが遮断することにより解消されている(これはTailsLinuxも同様)のも大きな利点になっています。  
+<details><summary>WhonixによるTorゲートウェイの構築および仮想マシンにおけるIPアドレス匿名化の検証(08/01/19)</summary><div>
+　WhonixはTailsLinuxと同様にOS内の全通信を「Tor経由」で行うことでセキュアな通信を実現するOSです。TailsLinuxと異なる利点としては「Whonix Gateway」と呼ばれる中継機能を容易に構築できる点です。このWhonix Gatewayを構築し、任意の仮想マシンのデフォルトゲートウェイに設定することで全通信がTor経由になります。Torの問題点であるDNS漏れについてもTor以外の通信をWhonixが遮断することにより解消されている(これはTailsLinuxも同様)のも大きな利点になっています。  
   
 構築フロー:
 　1. 公式サイト(https://www.whonix.org/download/)からOVA(Open Virtualization Format)形式のファイルをダウンロード  
@@ -43,9 +42,8 @@ WhonixはTailsLinuxと同様にOS内の全通信を「Tor経由」で行うこ�
 ---
 </div></details>
 
-## Burp Suiteで構築するHTTPSプロキシ(07/24/19)
-<details><summary>...</summary></div>
-前回はOWASP ZAPを使って自前で運用しているWebサイトの脆弱性を診断しました。  
+<details><summary>Burp Suiteで構築するHTTPSプロキシ(07/24/19)</summary></div>
+　前回はOWASP ZAPを使って自前で運用しているWebサイトの脆弱性を診断しました。  
 今回はBurp Suiteを用いてローカルプロキシを立ち上げ、中継されるリクエスト/レスポンスを傍受または改竄できるかを試してみます。  
   
 　流れ:  
@@ -72,9 +70,8 @@ WhonixはTailsLinuxと同様にOS内の全通信を「Tor経由」で行うこ�
 </div></details>
 
 
-## OWASP ZAPを用いたWebサイトの脆弱性診断(07/15/19)
-<details><summary>...</summary></div>
-久しぶりの投稿。今回はOWASP ZAPを用いてWebサイトの脆弱性診断を行ったのでその流れと結果を報告します。  
+<details><summary>OWASP ZAPを用いたWebサイトの脆弱性診断(07/15/19)</summary></div>
+　久しぶりの投稿。今回はOWASP ZAPを用いてWebサイトの脆弱性診断を行ったのでその流れと結果を報告します。  
 OWASP ZAPはOSSで提供される脆弱性診断を行う為のアプリケーションです。機能が概ねGUIで提供されていて容易に診断、結果のフィードバックが行えます。動的スキャンを用いたのでその流れを示します。  
  
 　流れ:   
@@ -106,9 +103,8 @@ OWASP ZAPはOSSで提供される脆弱性診断を行う為のアプリケー�
 </div></details>
 
 
-## Apache Struts 2におけるリモートコード実行[CVE-2018-11776]の脆弱性検証(07/02/19)
-<details><summary>...</summary></div>
-某セキュリティ会社が発行している「JSOC INSIGHT」のvol.22にて「Apache Struts 2におけるリモートコード実行の脆弱性」が取り上げられていたので持ち前の情報収集力を生かしてこの脆弱性を再現・検証したのでそれをまとめます。
+<details><summary>Apache Struts 2におけるリモートコード実行[CVE-2018-11776]の脆弱性検証(07/02/19)</summary></div>
+　某セキュリティ会社が発行している「JSOC INSIGHT」のvol.22にて「Apache Struts 2におけるリモートコード実行の脆弱性」が取り上げられていたので持ち前の情報収集力を生かしてこの脆弱性を再現・検証したのでそれをまとめます。
 まず、この脆弱性はURLに数値計算式またはOSコマンドを実行するOGNL文をインジェクションすることで悪用されます。Apache Struts2の設定ファイルである「struts.xml」において、  
 　 ・「alwaysSelectFullNamespace」をtrueにしている  
 　 ・「actionタグ」または「urlタグ」が含まれている  
@@ -148,9 +144,8 @@ OWASP ZAPはOSSで提供される脆弱性診断を行う為のアプリケー�
 </div></details>
 
 
-## VPNGate with Proxyを用いた通信の秘匿(06/15/19)
-<details><summary>...</summary></div>
-先日にTorネットワークを用いてIPアドレスを隠蔽する方法を記事にしたが、今回は通信自体の隠蔽について。VPNGate with Proxyを用いることでVPNでの通信を可能にし、情報の盗聴を防ぐことができます。また、末端接続先(Webサイトなど)からはVPNサーバのIPアドレスしか見られない状態になります。  
+<details><summary>VPNGate with Proxyを用いた通信の秘匿(06/15/19)</summary></div>
+　先日にTorネットワークを用いてIPアドレスを隠蔽する方法を記事にしたが、今回は通信自体の隠蔽について。VPNGate with Proxyを用いることでVPNでの通信を可能にし、情報の盗聴を防ぐことができます。また、末端接続先(Webサイトなど)からはVPNサーバのIPアドレスしか見られない状態になります。  
 しかしVPNサーバが情報を開示した場合はIPアドレスが丸わかりになるので悪用厳禁。  
   
 通信方法(Debian9):  
@@ -178,9 +173,8 @@ OWASP ZAPはOSSで提供される脆弱性診断を行う為のアプリケー�
 </div></details>
 
 
-## 防衛のためのTorネットワーク(06/14/19)
-<details><summary>...</summary></div>
-Torとは、The Onion Routerの略でSOCKSプロキシを何重に経由することでIPアドレスの匿名性を向上させる技術を指します。もとは米軍により開発された技術ですが現在はTor Projectが管理運営をしています。IP匿名化の仕組みは説明すると長くなるので端的に言えば寄り道をしまくって経由するサーバごとにIPアドレスを書き換えるといった感じになりますね。また、SOCKSはTCPを包括するシステムなのでHTTP/HTTPSだけでなくTCP上で動作するプロトコルなら通信が可能です(もちろんUDPはできない)。  
+<details><summary>防衛のためのTorネットワーク(06/14/19)</summary></div>
+　Torとは、The Onion Routerの略でSOCKSプロキシを何重に経由することでIPアドレスの匿名性を向上させる技術を指します。もとは米軍により開発された技術ですが現在はTor Projectが管理運営をしています。IP匿名化の仕組みは説明すると長くなるので端的に言えば寄り道をしまくって経由するサーバごとにIPアドレスを書き換えるといった感じになりますね。また、SOCKSはTCPを包括するシステムなのでHTTP/HTTPSだけでなくTCP上で動作するプロトコルなら通信が可能です(もちろんUDPはできない)。  
   
 通信方法:  
 　1. Torをインストールする(aptコマンドなどで直接行う方法が簡単)  
@@ -208,9 +202,8 @@ Torとは、The Onion Routerの略でSOCKSプロキシを何重に経由する�
 </div></details>
 
 
-## ハッシュによるファイルの正当性検証(06/08/19)
-<details><summary>...</summary></div>
-何気なくインターネットからファイルをダウンロードしてファイルの正当性を疑うこともなくそのままインストールして...
+<details><summary>ハッシュによるファイルの正当性検証(06/08/19)</summary></div>
+　何気なくインターネットからファイルをダウンロードしてファイルの正当性を疑うこともなくそのままインストールして...
 でもセキュリティリテラシーの観点からするとよろしくないのでハッシュによる検証を癖つけるために記事にしました。  
 方法(kali-linux-2019.2-amd64.isoの例):  
 
@@ -233,9 +226,8 @@ Torとは、The Onion Routerの略でSOCKSプロキシを何重に経由する�
 </div></details>
 
 
-## Metasploit+docker(+nmap)で試すHeartbleed(04/10/19)
-<details><summary>...</summary></div>
-Heartbleedというメモリリークから個人・機密情報を漏洩させる脆弱性。頑張ればこの脆弱性を持ったサーバーをイントラネットに立てて擬似攻撃できるんじゃね？って思ったのでやってみました。サーバーを立てるのにdockerを使い、コンテナイメージは[hmlio/vaas-cve-2014-0160
+<details><summary>Metasploit+docker(+nmap)で試すHeartbleed(04/10/19)</summary></div>
+　Heartbleedというメモリリークから個人・機密情報を漏洩させる脆弱性。頑張ればこの脆弱性を持ったサーバーをイントラネットに立てて擬似攻撃できるんじゃね？って思ったのでやってみました。サーバーを立てるのにdockerを使い、コンテナイメージは[hmlio/vaas-cve-2014-0160
 ](https://hub.docker.com/r/hmlio/vaas-cve-2014-0160/)を使用します(VaaSなんて言葉があるのな...)。以下に手順記載しますー  
 
 1.dockerで[hmlio/vaas-cve-2014-0160
