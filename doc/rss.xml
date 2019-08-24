@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[SpCn-Blog]]></title><description><![CDATA[SuperConsole is Music Composer & Web Designer / Twitter:@_SuperConsole / SoundCloud:@SuperConsole /]]></description><link>https://superconsole.work</link><generator>RSS for Node</generator><lastBuildDate>Sat, 24 Aug 2019 07:21:18 GMT</lastBuildDate><item><title><![CDATA[WhonixによるTorゲートウェイの構築及び仮想マシンにおけるIPアドレス匿名化の検証]]></title><description><![CDATA[WhonixはTailsLinuxと同様にOS内の全通信を「Tor経由」で行うことでセキュアな通信を実現するOSです。TailsLinuxと異なる利点としては「Whonix Gateway」と呼ばれる中継機能を容易に構築できる点です。このWhonix Gateway…]]></description><link>https://superconsole.work/190801/</link><guid isPermaLink="false">https://superconsole.work/190801/</guid><pubDate>Thu, 01 Aug 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;　WhonixはTailsLinuxと同様にOS内の全通信を「Tor経由」で行うことでセキュアな通信を実現するOSです。TailsLinuxと異なる利点としては「Whonix Gateway」と呼ばれる中継機能を容易に構築できる点です。このWhonix Gatewayを構築し、任意の仮想マシンのデフォルトゲートウェイに設定することで全通信がTor経由になります。Torの問題点であるDNS漏れについてもTor以外の通信をWhonixが遮断することにより解消されている(これはTailsLinuxも同様)のも大きな利点になっています。  &lt;/p&gt;
+&lt;p&gt;構築フロー:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;公式サイト(&lt;a href=&quot;https://www.whonix.org/download/&quot;&gt;https://www.whonix.org/download/&lt;/a&gt;)からOVA(Open Virtualization Format)形式のファイルをダウンロード&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;＊GUI版とCLI版があるが好みに合わせてダウンロードすると良い&lt;/code&gt;  &lt;/li&gt;
+&lt;li&gt;Virtual Box(以下、Vbox)にインポートする(特に設定は弄らずにインポートしても問題はない)  &lt;/li&gt;
+&lt;li&gt;起動し、初期設定を行ったのちに以下コマンドを入力し、アップデートの有無を調べる&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;$sudo apt-get update &amp;amp;&amp;amp; sudo apt-get upgrade&lt;/code&gt;  &lt;/li&gt;
+&lt;li&gt;コマンドの実行後、再起動する&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;＊rootのパスワードを変えることを推奨&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Vboxの一覧画面で、IP匿名化を行いたい仮想マシン(例としてKaliLinuxを挙げる)を選択&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;-&amp;gt; ネットワークのアダプタ1を内部ネットワークにし、Whonixを選択する&lt;/code&gt;  &lt;/li&gt;
+&lt;li&gt;KaliLinuxを起動、OS内(ないし、検証のみであればFirefox ESRでも良い)で、&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;-&amp;gt; サブネットマスク: 255.255.192.0&lt;/code&gt;&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;-&amp;gt; ゲートウェイ: 10.152.152.10&lt;/code&gt;&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;-&amp;gt; DNSサーバー: 10.152.152.10&lt;/code&gt;&lt;br&gt;
+に設定、ネットワークインターフェースまたはOSを再起動して設定を適用する  &lt;/li&gt;
+&lt;li&gt;TorによるIP匿名化ができているか以下のサイトを用いるなどして検証する&lt;br&gt;
+・ Check Tor Project &lt;a href=&quot;https://check.torproject.org/&quot;&gt;https://check.torproject.org/&lt;/a&gt;&lt;br&gt;
+・ TorによりIPの匿名化が成功していれば「Congratulations.」から始まる文が表示される。  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/736bc8a0e42502445da1a8821dae5bb7/0730f/tor-success-result.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 53.18818040435459%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIEAQX/xAAUAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHuq0gWGi//xAAbEAACAQUAAAAAAAAAAAAAAAAAAQIDEBESIf/aAAgBAQABBQLZEZGRlXlv/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGRAAAgMBAAAAAAAAAAAAAAAAEBEAASIx/9oACAEBAAY/AuzSNIf/xAAdEAEAAgEFAQAAAAAAAAAAAAABABFBECExUWFx/9oACAEBAAE/IfFNhsG8OJTuEeSJV1fNP//aAAwDAQACAAMAAAAQj8//xAAVEQEBAAAAAAAAAAAAAAAAAAAQIf/aAAgBAwEBPxCn/8QAFhEAAwAAAAAAAAAAAAAAAAAAARAR/9oACAECAQE/EIV//8QAGRABAQEBAQEAAAAAAAAAAAAAAREAITFx/9oACAEBAAE/EEMJagTodcwpQOQIP3WQsbUuPN//2Q==&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;tor success result&quot; title=&quot;tor success result&quot; src=&quot;/static/736bc8a0e42502445da1a8821dae5bb7/c739e/tor-success-result.jpg&quot; srcset=&quot;/static/736bc8a0e42502445da1a8821dae5bb7/8ee9c/tor-success-result.jpg 148w,
+/static/736bc8a0e42502445da1a8821dae5bb7/ebbe7/tor-success-result.jpg 295w,
+/static/736bc8a0e42502445da1a8821dae5bb7/c739e/tor-success-result.jpg 590w,
+/static/736bc8a0e42502445da1a8821dae5bb7/0730f/tor-success-result.jpg 643w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;  
+&lt;p&gt;今までOS内の全通信をTor経由にする場合、TailsLinuxを使用することで可能にしていた。もちろんKaliLinux内にTorをインストールすればIPアドレスの匿名化も可能ではあるがその場合前述の通りDNS漏れが生じる場合がある。&lt;br&gt;
+これはTorの実態であるSocks5プロキシがUDPに対応していないのが原因であるが、TailsLinuxを用いた場合、こういった非対応のトラフィックを全て遮断し、TCPのみの通信に強制することで解消される。&lt;br&gt;
+しかし、KaliLinux内には豊富なエクスプロイトツールがはじめから入っており、これを活用しようと考えた場合、WhonixをTorゲートウェイとした内部ネットワークを構築することで利点を両立させているのだ。すごい。すごいWhonix。おわり。&lt;/p&gt;
+&lt;p&gt;参考:&lt;br&gt;
+・ Whonixを使ってみる。 &lt;a href=&quot;http://ebimanion.hateblo.jp/entry/2018/02/22/111100&quot;&gt;http://ebimanion.hateblo.jp/entry/2018/02/22/111100&lt;/a&gt;&lt;br&gt;
+・ Whonixで仮想マシンをTorで匿名化 &lt;a href=&quot;https://blog.cheena.net/8&quot;&gt;https://blog.cheena.net/8&lt;/a&gt;&lt;br&gt;
+・ Check Tor Project &lt;a href=&quot;https://check.torproject.org/&quot;&gt;https://check.torproject.org/&lt;/a&gt;  &lt;/p&gt;</content:encoded></item><item><title><![CDATA[Burp Suiteで構築するHTTPSプロキシ]]></title><description><![CDATA[前回はOWASP ZAPを使って自前で運用しているWebサイトの脆弱性を診断しました。 今回はBurp Suiteを用いてローカルプロキシを立ち上げ、中継されるリクエスト/レスポンスを傍受または改竄できるかを試してみます。   　流れ:   https://portswigger…]]></description><link>https://superconsole.work/190724/</link><guid isPermaLink="false">https://superconsole.work/190724/</guid><pubDate>Wed, 24 Jul 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;　前回はOWASP ZAPを使って自前で運用しているWebサイトの脆弱性を診断しました。&lt;br&gt;
+今回はBurp Suiteを用いてローカルプロキシを立ち上げ、中継されるリクエスト/レスポンスを傍受または改竄できるかを試してみます。  &lt;/p&gt;
+&lt;p&gt;　流れ:  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://portswigger.net/burp&quot;&gt;https://portswigger.net/burp&lt;/a&gt; からBurp Suiteをダウンロード、適宜インストール&lt;br&gt;
+＊Kali Linuxユーザは既にBurp Suiteが同梱されているのでそれを用いるてもよい  &lt;/li&gt;
+&lt;li&gt;Burp Suiteを起動した後にブラウザ(Firefox等)で「127.0.0.1:8080」をプロキシに登録する  &lt;/li&gt;
+&lt;li&gt;ブラウザで「127.0.0.1:8080」にアクセス、Burpの証明書をインポートする  &lt;/li&gt;
+&lt;li&gt;以降通信内容がすべてプロキシに記録される&lt;br&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 413px;&quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/ee4e7965809dfbfa87dcc54436395a32/82024/Burp-Suite-Https-Log.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 53.510895883777245%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsSAAALEgHS3X78AAACY0lEQVQoz21S2W7TQBQ1KvSFT0N8GO9I/ANIvFNRpJY0adOkWerWjuMkju3E+24nTuKZw/UgKA9c6Wjkkebcs1gajBX87I3Q7Y9xez/C4OER1zd9/Ljq4rpzh/5wAlmZIysq5MUOaV7yJCvYrj4iycr3Eg2dZ9KfcT0fa9PCZutg67gw7Q1m2hwXF9/x+ctXDIdjIioRRolAWe344XBkoKkPB0FI5wuhqq8xmDxD1RbQ9BX0pYkwTuH5IRHrUGc6HNeHvXFg2Q6yvOB1XTPGgf2+FoT7uj47nU5SC6k/ekLvfgz5eSYIozhDXpK1rERR7UlR/dsu3Yl7Yblk1f6IOM0F4XCivChcGwYs04TjbBHHEZIkwXK5RKfzE71eV+Du9pbOHrrdLuGGTydjYZnmXctB56u/hKZpMsuymK7rbL1es+12yxzHZQttzu+opE5/zAdUzMNoSoVNMNeXnHLnSZojCOOJF0Tf/CC69IP4kr4vJdu2EYahQFmWOB6PYrVuWJjKz1xRNcwoR5Xy1JcrrNYmTNOGaW0EqUCSIaLCiBitQsNxHMP3fSOOY4NIV4w1RhCGh9b6YjHnuz1lWeRI0wiqqnJNU7gsT6gom1HDDZXR0NvGdZ2m9f/mH5wTzha6+jYMI9nzPKyMZfsI+11JpCktWFDGGhRFFrk3TQPOOQpaGMchpP/Np48fXrueN6U8W4WMfg9UVYE8i6FpGuZzBdrsCaSIIjqBMYYsSxH4HqQ0TSWyKVVVJfmeJ9q6712dB0H46LkuVitSWB+wI4VFnkDXF4QZLdIEIdklhQx5TjmGAX4BDAbNLAkgRGYAAAAASUVORK5CYII=&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;Burp Suite Https Log&quot; title=&quot;Burp Suite Https Log&quot; src=&quot;/static/ee4e7965809dfbfa87dcc54436395a32/82024/Burp-Suite-Https-Log.png&quot; srcset=&quot;/static/ee4e7965809dfbfa87dcc54436395a32/cf440/Burp-Suite-Https-Log.png 148w,
+/static/ee4e7965809dfbfa87dcc54436395a32/d2d38/Burp-Suite-Https-Log.png 295w,
+/static/ee4e7965809dfbfa87dcc54436395a32/82024/Burp-Suite-Https-Log.png 413w&quot; sizes=&quot;(max-width: 413px) 100vw, 413px&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;proxyタブの「Intercept is on」の状態時には通信がプロキシで一度停止&lt;br&gt;
+内容を確認したり必要によって書き換えたり(悪用厳禁)して通信再開「Forward」することが可能  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;今回はBurp Suiteでローカルプロキシを立ち上げ、Burp証明書を用いてHTTPSの通信に割り込んでみました。&lt;br&gt;
+この機能はOWASP ZAPでも使用可能らしいですが、個人的にこっちのが使いやすいかなーと思います。&lt;br&gt;
+ところで、OWASP ZAPとBurp Suiteの用途の違いが曖昧でよくわかっていなかった自分ですが調べたところBurp SuiteはOSSではないらしいです。今回使用した無料版はCommunity版、有料版はEnterprise版が$3999/年、Professional版が$399/年。個人ではやや厳しい価格なのかなと思いますが商用利用などを考えている場合、有料版でサポートがしっかりしていると安心なのかなと。OSSの数少ないデメリットなので。&lt;br&gt;
+次回からはWebの脆弱性診断から離れてネットワークやOS, ミドルウェアらへんに焦点を当てて行きたいところです。&lt;br&gt;
+…ブログと日記を分割しなきゃな…。おわり。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[OWASP ZAPを用いたWebサイトの脆弱性診断]]></title><description><![CDATA[久しぶりの投稿。今回はOWASP ZAPを用いてWebサイトの脆弱性診断を行ったのでその流れと結果を報告します。 OWASP ZAPはOSSで提供される脆弱性診断を行う為のアプリケーションです。機能が概ねGUI…]]></description><link>https://superconsole.work/190715/</link><guid isPermaLink="false">https://superconsole.work/190715/</guid><pubDate>Mon, 15 Jul 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;　久しぶりの投稿。今回はOWASP ZAPを用いてWebサイトの脆弱性診断を行ったのでその流れと結果を報告します。&lt;br&gt;
+OWASP ZAPはOSSで提供される脆弱性診断を行う為のアプリケーションです。機能が概ねGUIで提供されていて容易に診断、結果のフィードバックが行えます。動的スキャンを用いたのでその流れを示します。  &lt;/p&gt;
+&lt;p&gt;流れ:   &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;以下の公式リポジトリの「wiki」タブからダウンロード -&gt; OSに合わせて適宜インストールする&lt;br&gt;
+- &lt;a href=&quot;https://github.com/zaproxy/zaproxy&quot;&gt;https://github.com/zaproxy/zaproxy&lt;/a&gt;  &lt;/li&gt;
+&lt;li&gt;OWASP ZAPを使用するためにFirefox等のブラウザでプロキシの設定を行う(以下は例)&lt;br&gt;
+proxy: 127.0.0.1 / port: 57777&lt;br&gt;
+＊これによりブラウザの通信を傍受可能になる(脆弱性診断に用いるため設定必須)&lt;/li&gt;
+&lt;li&gt;OWASP ZAPの証明書を生成し、ブラウザにインポートする
+　　　＊基本ブラウザはFirefoxが推奨されている、プロキシや&lt;/li&gt;
+&lt;li&gt;OWASP ZAPを起動、ここからは参考文献(本:OWASP ZAPではじめるウェブアプリ脆弱性診断/脆弱性診断研究会)に沿って以下を設定した&lt;br&gt;
+モード, 診断範囲(コンテキスト, スコープ), スキャンポリシー  &lt;/li&gt;
+&lt;li&gt;コンテキスト内のターゲット上で動的スキャンを選択し、実行する -&gt; アラートタブにスキャンの結果(検出した脆弱性や改善点等)が表示される  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;ざっくり言うとこんな流れになります。OWASP ZAPを使っていてすごいなと感じたのはこの動的スキャンの結果に「設定ミス」の類についてもフィードバックされた点ですね。自前で運営している某サイトの試験環境に動的スキャンを走らせた結果、「X-Content-Type-Optionsヘッダ」の設定がされておらず悪意のあるスクリプトがインジェクションされる危険性が潜んでいました(怖い…)。サイトの開発のなかでHTTPヘッダの設定を意識しないまま開発していたが故のミスです…。奥が深いなぁ…。  &lt;/p&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 381px;&quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/1315d854408efecb337247126353e9da/e37cd/OWASP-ZAP-result-alert.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 39.632545931758536%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsSAAALEgHS3X78AAABdElEQVQY03WPS0vDQBSF++98rQVX/gQXVlduqkvBlaB1IQj6U0QR66OTmNfkMck8MmmTNDOtia19OFFQUDycxeXe8x24ja3Ds/3jo43W1fre+ebB5UbrYql5urLTXts9W2m21aC8utNebp4sbf92I84kDgzLAB3NedLNewCB6V/fg5tHcPdk3HWNjm7fPurARjyTLBWflopSbrzPFm9ZIJgTUUZwhALk+17C4jxNY0KThEHbooSOx5PFH9Xw6yDKeyjExPUCz0ceiiKMCaUIYxbHqi4iNKJxzBPKGE9S0RPlqKrh6WxRDhnD0Ha8CCHoQs91HVhL07Tuc9d4MaDnkLqIq4Bp2RRTKYZFIWu4ErjPYBBizjnjPMT4K+Q4bhiGLnQfHjoA6JzHoR+okrJ8nUzG6pHGbDrlvQQTYlrWM9BMz+/qL4pM+n0hRFWp5CjNsiwfqHkoZVWNf36ez+ejaiKGZZ7nhRC5KIpBIaRU+8U/+j59ACU6mfQWBCNSAAAAAElFTkSuQmCC&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;OWASP ZAP result alert&quot; title=&quot;OWASP ZAP result alert&quot; src=&quot;/static/1315d854408efecb337247126353e9da/e37cd/OWASP-ZAP-result-alert.png&quot; srcset=&quot;/static/1315d854408efecb337247126353e9da/cf440/OWASP-ZAP-result-alert.png 148w,
+/static/1315d854408efecb337247126353e9da/d2d38/OWASP-ZAP-result-alert.png 295w,
+/static/1315d854408efecb337247126353e9da/e37cd/OWASP-ZAP-result-alert.png 381w&quot; sizes=&quot;(max-width: 381px) 100vw, 381px&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;p&gt;次は気が向いたら似たようなアプリであるBurp Suiteに触れた所感を書こうかなーと思っていたりいなかったりですね。おわり。  &lt;/p&gt;
+&lt;p&gt;＊追記: HTTPヘッダの設定とセキュリティについていい感じのサイトを見つけたのでメモ&lt;br&gt;
+セキュリティを強化する7つの便利なHTTPヘッダ / &lt;a href=&quot;https://devcentral.f5.com/s/articles/7http&quot;&gt;https://devcentral.f5.com/s/articles/7http&lt;/a&gt;&lt;br&gt;
+&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Apache Struts 2におけるリモートコード実行[CVE-2018-11776]の脆弱性検証]]></title><description><![CDATA[某セキュリティ会社が発行している「JSOC INSIGHT」のvol.22にて「Apache Struts 2におけるリモートコード実行の脆弱性」が取り上げられていたので持ち前の情報収集力を生かしてこの脆弱性を再現・検証したのでそれをまとめます。
+まず、この脆弱性はURL…]]></description><link>https://superconsole.work/190702/</link><guid isPermaLink="false">https://superconsole.work/190702/</guid><pubDate>Tue, 02 Jul 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;　某セキュリティ会社が発行している「JSOC INSIGHT」のvol.22にて「Apache Struts 2におけるリモートコード実行の脆弱性」が取り上げられていたので持ち前の情報収集力を生かしてこの脆弱性を再現・検証したのでそれをまとめます。
+まず、この脆弱性はURLに数値計算式またはOSコマンドを実行するOGNL文をインジェクションすることで悪用されます。Apache Struts2の設定ファイルである「struts.xml」において、&lt;br&gt;
+・「alwaysSelectFullNamespace」をtrueにしている&lt;br&gt;
+・「actionタグ」または「urlタグ」が含まれている  &lt;/p&gt;
+&lt;p&gt;これらの条件をいずれも満たす場合に影響を受けます。今回の検証ではこの脆弱性を持つApache Struts 2.3.12内蔵のDockerコンテナ(piesecurity/apache-struts2-cve-2017-5638、以下Dockerコンテナ)を用意し、struts.xmlに設定を追加したのちにPoC(python)を実行し、サーバ内の機密情報(ここでは/etc/passwdファイル)を読み取るまでの流れを示す。  &lt;/p&gt;
+&lt;p&gt;方法(&lt;a href=&quot;https://github.com/hook-s3c/CVE-2018-11776-Python-PoC&quot;&gt;hook-s3c氏のPoC&lt;/a&gt;より):  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Dockerコンテナ(piesecurity/apache-struts2-cve-2017-5638)をdockerhubよりプル&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;$docker pull piesecurity/apache-struts2-cve-2017-5638&lt;/code&gt;  &lt;/li&gt;
+&lt;li&gt;コンテナをポート32771番に指定しデタッチモードにて起動//被害側&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;$docker run -d -p 32771:8080 piesecurity/apache-struts2-cve-2017-5638&lt;/code&gt;  &lt;/li&gt;
+&lt;li&gt;エディタ(vim)をインストールした後設定ファイルを編集する(内容はリンク先参照,設定ファイルの様式にしたがって追加すること)&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;$vim /usr/local/tomcat/webapps/ROOT/WEB-INF/classes/struts.xml&lt;/code&gt;  &lt;/li&gt;
+&lt;li&gt;Apache Struts2(Dockerコンテナ)を再起動&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;$exit&lt;/code&gt;&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;$docker restart [コンテナID]&lt;/code&gt;&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;$docker exec -it [コンテナID] bash&lt;/code&gt;  &lt;/li&gt;
+&lt;li&gt;攻撃側PCからDockerコンテナの32771番ポートにアクセス　　&lt;/li&gt;
+&lt;/ol&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 435px;&quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/38f291fef97cd8a785923cce4bae2305/48ba6/CVE-2018-11776-poc-struts2.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 33.793103448275865%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsSAAALEgHS3X78AAABGElEQVQoz4VR20rEMBDNV/nkg9/iLwniL/gb6oMo9aGyuoJWtNc0bZLS61q7x8mUXcoiOnCYOXNmQnIi4jhCmqbICHEco7IVcikhZYamrqHyHHkuqZdBlyW6tuVcFIq1HVdKcS02mw2GYdhjHEcWWoLjXdfted/3cPN933Hf9ZgvapEkKWxVoWkaGGNgrcVhbJfY4s8QD56H1eoJ6/ULfN9HEATzIf9tLmaWs6Kk9xujyZOCb1iWmvwjz8gfp71HKd6iDK9hQqCacsYeS95x/kuaVWquhSNOcAckSTILGX2A1vwZp5cejs6ucHJxg+Pza86PQYiOLHIxTRPfcAexJIdwrj3LGrcfGvehwd2ngRdZDF/frP1myg8SDxPFb03+rQAAAABJRU5ErkJggg==&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;CVE 2018 11776 poc struts2&quot; title=&quot;CVE 2018 11776 poc struts2&quot; src=&quot;/static/38f291fef97cd8a785923cce4bae2305/48ba6/CVE-2018-11776-poc-struts2.png&quot; srcset=&quot;/static/38f291fef97cd8a785923cce4bae2305/cf440/CVE-2018-11776-poc-struts2.png 148w,
+/static/38f291fef97cd8a785923cce4bae2305/d2d38/CVE-2018-11776-poc-struts2.png 295w,
+/static/38f291fef97cd8a785923cce4bae2305/48ba6/CVE-2018-11776-poc-struts2.png 435w&quot; sizes=&quot;(max-width: 435px) 100vw, 435px&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;  
+  
+6. URL&amp;#x306E;&amp;#x6307;&amp;#x5B9A;&amp;#x90E8;(JSOC INSIGHT&amp;#x3092;&amp;#x53C2;&amp;#x7167;)&amp;#x306B;OGNL&amp;#x6587;&amp;#x3092;&amp;#x633F;&amp;#x5165;&amp;#x3059;&amp;#x308B;([atucom.net](http://blog.atucom.net/2018/08/apache-struts-2-vulnerability-exploit.html)&amp;#x3088;&amp;#x308A;OS&amp;#x30B3;&amp;#x30DE;&amp;#x30F3;&amp;#x30C9;&amp;#x304B;&amp;#x3089;OGNL&amp;#x6587;&amp;#x751F;&amp;#x6210;&amp;#x3059;&amp;#x308B;PoC&amp;#x304C;&amp;#x516C;&amp;#x958B;&amp;#x3055;&amp;#x308C;&amp;#x3066;&amp;#x3044;&amp;#x308B;&amp;#x306E;&amp;#x3067;&amp;#x3053;&amp;#x308C;&amp;#x3092;&amp;#x5229;&amp;#x7528;&amp;#x3057;&amp;#x305F;&amp;#x3002;&amp;#x30A6;&amp;#x30A4;&amp;#x30EB;&amp;#x30B9;&amp;#x306B;&amp;#x611F;&amp;#x67D3;&amp;#x3059;&amp;#x308B;&amp;#x6050;&amp;#x308C;&amp;#x304C;&amp;#x3042;&amp;#x308B;&amp;#x306E;&amp;#x3067;&amp;#x5B9F;&amp;#x884C;&amp;#x306F;&amp;#x81EA;&amp;#x5DF1;&amp;#x8CAC;&amp;#x4EFB;)  
+`$python ./a.py`  
+  
+7. OS&amp;#x30A4;&amp;#x30F3;&amp;#x30B8;&amp;#x30A7;&amp;#x30AF;&amp;#x30B7;&amp;#x30E7;&amp;#x30F3;&amp;#x304C;&amp;#x884C;&amp;#x308F;&amp;#x308C;&amp;#x3001;&amp;#x653B;&amp;#x6483;&amp;#x5074;&amp;#x306B;&amp;#x3066;&amp;#x88AB;&amp;#x5BB3;&amp;#x5074;&amp;#x5185;&amp;#x306B;&amp;#x3042;&amp;#x308B;&amp;#x6A5F;&amp;#x5BC6;&amp;#x60C5;&amp;#x5831;/etc/passwd&amp;#x30D5;&amp;#x30A1;&amp;#x30A4;&amp;#x30EB;)&amp;#x306E;&amp;#x8AAD;&amp;#x307F;&amp;#x53D6;&amp;#x308A;&amp;#x306B;&amp;#x6210;&amp;#x529F;&amp;#x3057;&amp;#x3066;&amp;#x3044;&amp;#x308B;&amp;#x3053;&amp;#x3068;&amp;#x3092;&amp;#x78BA;&amp;#x8A8D;&amp;#x3067;&amp;#x304D;&amp;#x308B;&amp;#x3002;  
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/bd7d24b1b615ea4dcc59f0d2cc42ac42/52699/CVE-2018-11776-poc-result.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 47.02194357366772%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAAAmklEQVQoz6WRyxKCMAxFEwcVpdNSGKaIDD7+/x/jvSMLlkoWp+mmp7mJxJztkqKFGK2rT7ac1YajWitiNWjAAcivTDgyGEEBs6h1qPqPZEuvagGMoIAZNB7hEwJ2eEedwBv0KlbtFRY8ZkTKFsAPrntlZIAwcH6ovD8gjJ7IFCX5ygijs+PKM8OykTH2i4vyRE7rUm7rUlpH5A9WWLjpsZ70SQAAAABJRU5ErkJggg==&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;CVE 2018 11776 poc result&quot; title=&quot;CVE 2018 11776 poc result&quot; src=&quot;/static/bd7d24b1b615ea4dcc59f0d2cc42ac42/b9e4f/CVE-2018-11776-poc-result.png&quot; srcset=&quot;/static/bd7d24b1b615ea4dcc59f0d2cc42ac42/cf440/CVE-2018-11776-poc-result.png 148w,
+/static/bd7d24b1b615ea4dcc59f0d2cc42ac42/d2d38/CVE-2018-11776-poc-result.png 295w,
+/static/bd7d24b1b615ea4dcc59f0d2cc42ac42/b9e4f/CVE-2018-11776-poc-result.png 590w,
+/static/bd7d24b1b615ea4dcc59f0d2cc42ac42/52699/CVE-2018-11776-poc-result.png 638w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;  
+  
+&amp;#x4EE5;&amp;#x4E0A;&amp;#x3002;&amp;#x6570;&amp;#x5024;&amp;#x8A08;&amp;#x7B97;&amp;#x5F0F;&amp;#x3092;&amp;#x633F;&amp;#x5165;&amp;#x3059;&amp;#x308B;PoC&amp;#x306F;&amp;#x30B6;&amp;#x30C3;&amp;#x3068;&amp;#x8ABF;&amp;#x3079;&amp;#x305F;&amp;#x3060;&amp;#x3051;&amp;#x3067;&amp;#x3082;&amp;#x304B;&amp;#x306A;&amp;#x308A;&amp;#x306E;&amp;#x30B5;&amp;#x30A4;&amp;#x30C8;&amp;#x306B;&amp;#x8F09;&amp;#x3063;&amp;#x3066;&amp;#x3044;&amp;#x305F;&amp;#x304C;&amp;#x5B9F;&amp;#x969B;&amp;#x306B;&amp;#x60AA;&amp;#x7528;&amp;#x53EF;&amp;#x80FD;&amp;#x306A;OGNL&amp;#x6587;&amp;#x3092;&amp;#x633F;&amp;#x5165;&amp;#x3059;&amp;#x308B;&amp;#x30B3;&amp;#x30FC;&amp;#x30C9;&amp;#x3092;&amp;#x516C;&amp;#x958B;&amp;#x3059;&amp;#x308B;JSOC INSIGHT&amp;#x306F;&amp;#x4E00;&amp;#x5473;&amp;#x9055;&amp;#x3046;&amp;#x306A;&amp;#x3068;&amp;#x5B9F;&amp;#x611F;&amp;#x3057;&amp;#x307E;&amp;#x3057;&amp;#x305F;(&amp;#x8AB0;&amp;#x76EE;&amp;#x7DDA;)&amp;#x3002;&amp;#x8A71;&amp;#x306F;&amp;#x5909;&amp;#x308F;&amp;#x308B;&amp;#x306E;&amp;#x3067;&amp;#x3059;&amp;#x304C;&amp;#x3001;&amp;#x4EE5;&amp;#x524D;[PoC&amp;#x306B;&amp;#x898B;&amp;#x305B;&amp;#x304B;&amp;#x3051;&amp;#x3066;&amp;#x672C;&amp;#x5F53;&amp;#x306B;&amp;#x30EA;&amp;#x30E2;&amp;#x30FC;&amp;#x30C8;&amp;#x3067;&amp;#x5B9F;&amp;#x884C;&amp;#x3055;&amp;#x308C;&amp;#x308B;&amp;#x3084;&amp;#x3064;](https://web.archive.org/web/20190702145836/https:/twitter.com/x64koichi/status/1141635520419602432/photo/1)&amp;#x304C;&amp;#x5DF7;&amp;#x3067;&amp;#x8A71;&amp;#x984C;&amp;#x306B;&amp;#x306A;&amp;#x308A;&amp;#x307E;&amp;#x3057;&amp;#x305F;&amp;#x306D;&amp;#x3002;&amp;#x3053;&amp;#x3046;&amp;#x3044;&amp;#x3046;&amp;#x3053;&amp;#x3068;&amp;#x304C;&amp;#x5C11;&amp;#x306A;&amp;#x304B;&amp;#x3089;&amp;#x305A;&amp;#x3042;&amp;#x308B;&amp;#x306E;&amp;#x3067;PoC&amp;#x3092;&amp;#x4F7F;&amp;#x3063;&amp;#x3066;&amp;#x691C;&amp;#x8A3C;&amp;#x3059;&amp;#x308B;&amp;#x306B;&amp;#x306F;&amp;#x30BD;&amp;#x30FC;&amp;#x30B9;&amp;#x30B3;&amp;#x30FC;&amp;#x30C9;&amp;#x306B;&amp;#x76EE;&amp;#x3092;&amp;#x901A;&amp;#x3059;&amp;#x3053;&amp;#x3068;&amp;#x304C;&amp;#x5927;&amp;#x524D;&amp;#x63D0;&amp;#x3067;&amp;#x3059;&amp;#x3002;  
+&amp;#x4ECA;&amp;#x56DE;&amp;#x306E;&amp;#x74B0;&amp;#x5883;&amp;#x3067;&amp;#x306F;truts.xml&amp;#x306E;&amp;#x300C;alwaysSelectFullNamespace&amp;#x300D;&amp;#x3092;&amp;#x7121;&amp;#x52B9;&amp;#x306B;&amp;#x3057;&amp;#x305F;&amp;#x3053;&amp;#x3068;&amp;#x3067;ONGL&amp;#x6587;&amp;#x306B;&amp;#x3088;&amp;#x308B;OS&amp;#x30A4;&amp;#x30F3;&amp;#x30B8;&amp;#x30A7;&amp;#x30AF;&amp;#x30B7;&amp;#x30E7;&amp;#x30F3;&amp;#x304C;&amp;#x52B9;&amp;#x304B;&amp;#x306A;&amp;#x304F;&amp;#x306A;&amp;#x3063;&amp;#x305F;&amp;#x3053;&amp;#x3068;&amp;#x3001;&amp;#x30D0;&amp;#x30FC;&amp;#x30B8;&amp;#x30E7;&amp;#x30F3;&amp;#x30A2;&amp;#x30C3;&amp;#x30D7;&amp;#x306B;&amp;#x3088;&amp;#x3063;&amp;#x3066;&amp;#x8106;&amp;#x5F31;&amp;#x6027;&amp;#x304C;&amp;#x89E3;&amp;#x6D88;&amp;#x3055;&amp;#x308C;&amp;#x305F;&amp;#x3053;&amp;#x3068;&amp;#x3092;&amp;#x78BA;&amp;#x8A8D;&amp;#x3057;&amp;#x307E;&amp;#x3057;&amp;#x305F;&amp;#x3002;&amp;#x30BB;&amp;#x30AD;&amp;#x30E5;&amp;#x30EA;&amp;#x30C6;&amp;#x30A3;&amp;#x3001;&amp;#x65E5;&amp;#x9803;&amp;#x304B;&amp;#x3089;&amp;#x610F;&amp;#x8B58;&amp;#x3057;&amp;#x3066;&amp;#x3044;&amp;#x304D;&amp;#x307E;&amp;#x3057;&amp;#x3087;&amp;#x3046;...&amp;#x3002;&amp;#x304A;&amp;#x308F;&amp;#x308A;&amp;#x3002;</content:encoded></item><item><title><![CDATA[VPNGate with Proxyを用いた通信の秘匿]]></title><description><![CDATA[先日にTorネットワークを用いてIPアドレスを隠蔽する方法を記事にしたが、今回は通信自体の隠蔽について。VPNGate with Proxyを用いることでVPNでの通信を可能にし、情報の盗聴を防ぐことができます。また、末端接続先(Webサイトなど)からはVPNサーバのIP…]]></description><link>https://superconsole.work/190615/</link><guid isPermaLink="false">https://superconsole.work/190615/</guid><pubDate>Sat, 15 Jun 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;　先日にTorネットワークを用いてIPアドレスを隠蔽する方法を記事にしたが、今回は通信自体の隠蔽について。VPNGate with Proxyを用いることでVPNでの通信を可能にし、情報の盗聴を防ぐことができます。また、末端接続先(Webサイトなど)からはVPNサーバのIPアドレスしか見られない状態になります。&lt;br&gt;
+しかしVPNサーバが情報を開示した場合はIPアドレスが丸わかりになるので悪用厳禁。  &lt;/p&gt;
+&lt;p&gt;通信方法(Debian9):  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;VPNGate With Proxyに必要なアプリケーションをインストールする&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;$apt install gir1.2-appindicator3-0.1 gir1.2-notify-0.7 python-gobject&lt;/code&gt;  &lt;/li&gt;
+&lt;li&gt;VPNGate with Proxyをインストール(クローン→解凍)する(・・・部はGithubのドメイン)&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;$git clone ・・・/Dragon2fly/vpngate-with-proxy&lt;/code&gt;&lt;br&gt;
+(*クローンしたディレクトリ配下にアプリケーションがある)   &lt;/li&gt;
+&lt;li&gt;VPNGate with Proxyを起動する&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;$./vpngate-with-proxy/run&lt;/code&gt;  &lt;/li&gt;
+&lt;li&gt;一覧から接続したいサーバを選択し、番号をコマンドラインに入力する&lt;br&gt;
+(サーバのindexが0の場合) &gt;&gt;0  &lt;/li&gt;
+&lt;li&gt;コネクションの確立後、IPアドレスがサーバのものになっているか確認する&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;$curl -sL ipinfo.io&lt;/code&gt;  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;以上。また、VPN Gateway with Proxyは筑波大学が提供するサービス「VPN Gate」の非公式Linuxクライアントである。利用する際は自己責任で。  &lt;/p&gt;
+&lt;p&gt;この記事を書く上で本当は「VPN Over Tor」というTorを経由した後にVPN通信を行ってインターネットに接続する環境を構築したかったがTor経由でのVPN Gateway with Proxyのサーバへの接続がうまくいかずに断念した。原因は今も模索中であるがTorネットワークは一般的なプロキシとはやや違う仕組みで動いているのでいろいろ設定をする必要があると考えている。保証のきいたVPNサービスを利用するのが無難だが向きになっている自分がいるので一つ一つ自分のペースで対処していきます。次回はペネトレーションテストツールを使ってみたりしようかなと思っています。おわり。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[防衛のためのTorネットワーク]]></title><description><![CDATA[Torとは、The Onion Routerの略でSOCKSプロキシを何重に経由することでIPアドレスの匿名性を向上させる技術を指します。もとは米軍により開発された技術ですが現在はTor Projectが管理運営をしています。IP…]]></description><link>https://superconsole.work/190614/</link><guid isPermaLink="false">https://superconsole.work/190614/</guid><pubDate>Fri, 14 Jun 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;　Torとは、The Onion Routerの略でSOCKSプロキシを何重に経由することでIPアドレスの匿名性を向上させる技術を指します。もとは米軍により開発された技術ですが現在はTor Projectが管理運営をしています。IP匿名化の仕組みは説明すると長くなるので端的に言えば寄り道をしまくって経由するサーバごとにIPアドレスを書き換えるといった感じになりますね。また、SOCKSはTCPを包括するシステムなのでHTTP/HTTPSだけでなくTCP上で動作するプロトコルなら通信が可能です(もちろんUDPはできない)。  &lt;/p&gt;
+&lt;p&gt;通信方法:  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Torをインストールする(aptコマンドなどで直接行う方法が簡単)&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;$sudo apt install tor&lt;/code&gt;  &lt;/li&gt;
+&lt;li&gt;Torを実行する&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;$tor&lt;/code&gt;  &lt;/li&gt;
+&lt;li&gt;Torの入り口となるプロキシを通すため、アドレスとポート番号を設定する&lt;br&gt;
+*具体的なアドレス、ポート番号は正規のモノを参照して適宜入力  &lt;/li&gt;
+&lt;li&gt;IPアドレスが偽装できているか確認する&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;$curl -sL ipinfo.io&lt;/code&gt;&lt;br&gt;
+(*IPアドレスの確認方法に関して指定はない)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;注意: TorはIPアドレスの匿名には貢献できるがセキュリティの信頼性を保証するものではないです。HTTPやIMAP, POPなどの通信化を行わないプロトコルでの通信は盗聴されるリスクがあります。また、中継サーバのにはトラフィックを解析したり捜査関係者のサーバが紛れ込んでいることがあるので最低限のリテラシーは必要です。  &lt;/p&gt;
+&lt;p&gt;調べてみたらTor Over VPNという言葉があるらしく、Torネットワークにアクセスする前に一度VPNを通す方法で、Torネットワークの入り口ですら送信元IPを隠蔽し、匿名性を高める方法だそう。フリーだとOpenVPNなどがありますがNordVPNというところが提供している「Tor Over Vpn」といった保証付きのサービスを使うのも手段としてありですね。  &lt;/p&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/d05d7fd2a0b731b5ab90fc5e2a86a7f7/26f73/tor.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 30.813953488372093%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAGABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB24FB/8QAGBAAAwEBAAAAAAAAAAAAAAAAAAERAiH/2gAIAQEAAQUCjGuzR//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABcQAAMBAAAAAAAAAAAAAAAAAAAQMTL/2gAIAQEABj8C0qf/xAAYEAACAwAAAAAAAAAAAAAAAAAAASExQf/aAAgBAQABPyGN0GUZI84f/9oADAMBAAIAAwAAABCDz//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABsQAAMAAwEBAAAAAAAAAAAAAAERIQAxUUGB/9oACAEBAAE/EIgYwinHd91lJJZvPnuWxQsFoLP/2Q==&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;tor&quot; title=&quot;tor&quot; src=&quot;/static/d05d7fd2a0b731b5ab90fc5e2a86a7f7/c739e/tor.jpg&quot; srcset=&quot;/static/d05d7fd2a0b731b5ab90fc5e2a86a7f7/8ee9c/tor.jpg 148w,
+/static/d05d7fd2a0b731b5ab90fc5e2a86a7f7/ebbe7/tor.jpg 295w,
+/static/d05d7fd2a0b731b5ab90fc5e2a86a7f7/c739e/tor.jpg 590w,
+/static/d05d7fd2a0b731b5ab90fc5e2a86a7f7/26f73/tor.jpg 860w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;  
+&lt;p&gt;遅延が大変なことになりそうだけど…。&lt;br&gt;
+あと、Torの話はしたもののダークウェブには興味ないです。本当に…。  &lt;/p&gt;
+&lt;p&gt;あと、身元を完全に隠したいユーザには匿名OS「Tails」があり、これを使えば万が一Torの中継サーバが裏切って生身のIPが特定されても直接の被害はなくなります。以上Torに関する記事(殴り書き)でした。おわり。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[ハッシュによるファイルの正当性検証]]></title><description><![CDATA[何気なくインターネットからファイルをダウンロードしてファイルの正当性を疑うこともなくそのままインストールして…
+でもセキュリティリテラシーの観点からするとよろしくないのでハッシュによる検証を癖つけるために記事にしました。 方法(kali-linux-2019.2-amd6…]]></description><link>https://superconsole.work/190608/</link><guid isPermaLink="false">https://superconsole.work/190608/</guid><pubDate>Sat, 08 Jun 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;　何気なくインターネットからファイルをダウンロードしてファイルの正当性を疑うこともなくそのままインストールして…
+でもセキュリティリテラシーの観点からするとよろしくないのでハッシュによる検証を癖つけるために記事にしました。&lt;br&gt;
+方法(kali-linux-2019.2-amd64.isoの例):  &lt;/p&gt;
+&lt;p&gt;　1. 公式サイトから検証対象の.isoファイル(kali-linux-2019.2-amd64.iso)をダウンロードする  &lt;/p&gt;
+&lt;p&gt;　2. OpenSSLを使ってハッシュ(今回はサイトのアルゴリズムにしたがってsha256)を以下のコマンドで算出(パイプで渡すのは個人的な好み)&lt;br&gt;
+$cat ./kali-linux-2019.2-amd64.iso | openssl sha256  &lt;/p&gt;
+&lt;p&gt;　3. 出力されたハッシュ値とサイト上にあるSHA256Sumの値が一致しているか確かめる&lt;br&gt;
+&gt;67574ee0039eaf4043a237e7c4b0…(例におけるハッシュ値)&lt;/p&gt;
+&lt;p&gt;　4. 同じであれば正当性が確立, 異なればハッシュのアルゴリズムが同じか見直すか再ダウンロードを行う&lt;/p&gt;
+&lt;p&gt;　簡単にできますね。しかし正当性の検証は大事なことです。なので忘れずにパソコンライフを送りたいと思います。  &lt;/p&gt;
+&lt;p&gt;余談:&lt;br&gt;
+ちなみに今日はデジタル署名とか認証まわりも学習していて、ネットサーフィンしてたら本物の”オレオレ証明書”のサイトを見つけました。でもChromeがちゃんと警告出してくれたのですぐに気づきました。詳細で確認するとルート証明書があからさまに怪しいドメインで面白かったです。以上。おわり。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Metasploit+docker(+nmap)で試すHeartbleed]]></title><description><![CDATA[Heartbleedというメモリリークから個人・機密情報を漏洩させる脆弱性。頑張ればこの脆弱性を持ったサーバーをイントラネットに立てて擬似攻撃できるんじゃね？って思ったのでやってみました。サーバーを立てるのにdockerを使い、コンテナイメージはhmlio/vaas-cve…]]></description><link>https://superconsole.work/190410/</link><guid isPermaLink="false">https://superconsole.work/190410/</guid><pubDate>Wed, 10 Apr 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Heartbleedというメモリリークから個人・機密情報を漏洩させる脆弱性。頑張ればこの脆弱性を持ったサーバーをイントラネットに立てて擬似攻撃できるんじゃね？って思ったのでやってみました。サーバーを立てるのにdockerを使い、コンテナイメージは&lt;a href=&quot;https://hub.docker.com/r/hmlio/vaas-cve-2014-0160/&quot;&gt;hmlio/vaas-cve-2014-0160
+&lt;/a&gt;を使用します(VaaSなんて言葉があるのな…)。&lt;br&gt;
+以下に手順記載しますー  &lt;/p&gt;
+&lt;p&gt;1.dockerで&lt;a href=&quot;https://hub.docker.com/r/hmlio/vaas-cve-2014-0160/&quot;&gt;hmlio/vaas-cve-2014-0160&lt;/a&gt;をプル  &lt;/p&gt;
+&lt;p&gt;2.ポート(usageに書いてあったので8443にした)を指定して起動(dockerhub内の手順に従った。このコンテナが被害者側)  &lt;/p&gt;
+&lt;p&gt;2’.nmapのHeartbleed検知スクリプトを使って被害者側が脆弱性を持つか確認)  &lt;/p&gt;
+&lt;p&gt;3.攻撃者側(Kali Linux)でMetasploitを起動  &lt;/p&gt;
+&lt;p&gt;4.CVE番号で検索をかけてHeartbleedモジュールを使用  &lt;/p&gt;
+&lt;p&gt;5.オプションをいくつか設定して実行(RHOST, RPORT, VERBOSEの三つを設定した)  &lt;/p&gt;
+&lt;p&gt;6.被害者側のメモリがリークしたのを確認できた。  &lt;/p&gt;
+&lt;p&gt;ちなみに、HeartbleedはOpenSSLで暗号化通信をしていても通信の末端では復号してメモリに展開されているという隙をついた脆弱性です。もともとは接続確認とか応答の意味を兼ねてパケットをとんぼ返りするHeartbeatパケットというのがあり、その中のLengthというパケットの大きさを返すパラメータに実際の大きさを超える値をセットし、偽装した大きさと実際の大きさの差分だけメモリがリークする仕組みだ。JVNのデータを見るとOpenSSLはv1.0.1~v1.0.1fまでとのこと。執筆時点での最新版がv3.0.0なのでアップデートしていれば心配することはない。ただ、2014年に見つかったこの脆弱性は2016年ごろまで被害が起きていたことからユーザのインシデント対応の遅さが問題に繋がる原因ともなるので注意が必要です。&lt;/p&gt;
+&lt;p&gt;うーん、それにしてもただただマニュアル読んでその通りにしただけでは？スクリプトキディみたい…。でもそれだけツールが充実しているということですね。手順がかなり端折っているのは詳しく書きすぎるとクラッキングの助長になってしまうかなと思ったからです。たぶんこの記事を読んだだけでクラッキングができたら元から知ってたよね？くらいの抽象度合いなので大目にみてくださいー。あ、このコンテナでOpenSSLをアップデートして脆弱性が解消されてるか確認しようとしたけどアップデートができなかった…脆弱性確認用だから対策されてるのかな…?おわり。&lt;/p&gt;
+&lt;p&gt;参考:&lt;br&gt;
+・　&lt;a href=&quot;https://jvndb.jvn.jp/ja/contents/2014/JVNDB-2014-001920.html&quot;&gt;JVNDB-2014-001920&lt;/a&gt;&lt;br&gt;
+・　&lt;a href=&quot;https://www.lac.co.jp/lacwatch/people/20161013_001056.html&quot;&gt;え？今さらHeartBleedの話ですか？&lt;/a&gt;&lt;/p&gt;</content:encoded></item></channel></rss>
