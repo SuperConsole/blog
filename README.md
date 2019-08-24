@@ -1,2 +1,2 @@
-# SpCn Diary
+# blog
 *知識を継続*
