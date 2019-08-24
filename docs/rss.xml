@@ -1,4 +1,67 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[SpCn-Blog]]></title><description><![CDATA[SuperConsole is Music Composer & Web Designer / Twitter:@_SuperConsole / SoundCloud:@SuperConsole /]]></description><link>https://superconsole.work</link><generator>RSS for Node</generator><lastBuildDate>Sat, 24 Aug 2019 08:13:27 GMT</lastBuildDate><item><title><![CDATA[WhonixによるTorゲートウェイの構築及び仮想マシンにおけるIPアドレス匿名化の検証]]></title><description><![CDATA[WhonixはTailsLinuxと同様にOS内の全通信を「Tor経由」で行うことでセキュアな通信を実現するOSです。TailsLinuxと異なる利点としては「Whonix Gateway」と呼ばれる中継機能を容易に構築できる点です。このWhonix Gateway…]]></description><link>https://superconsole.work/190801/</link><guid isPermaLink="false">https://superconsole.work/190801/</guid><pubDate>Thu, 01 Aug 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;　WhonixはTailsLinuxと同様にOS内の全通信を「Tor経由」で行うことでセキュアな通信を実現するOSです。TailsLinuxと異なる利点としては「Whonix Gateway」と呼ばれる中継機能を容易に構築できる点です。このWhonix Gatewayを構築し、任意の仮想マシンのデフォルトゲートウェイに設定することで全通信がTor経由になります。Torの問題点であるDNS漏れについてもTor以外の通信をWhonixが遮断することにより解消されている(これはTailsLinuxも同様)のも大きな利点になっています。  &lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[SpXn-Blog]]></title><description><![CDATA[SuperConsole is Music Composer & Web Designer / _spxn is Security Student /]]></description><link>https://superconsole.work</link><generator>RSS for Node</generator><lastBuildDate>Sat, 24 Aug 2019 13:25:09 GMT</lastBuildDate><item><title><![CDATA[Linuxカーネルにおける権限昇格(DirtyCOW:CVE-2016-5195)の脆弱性検証]]></title><description><![CDATA[2016年にLinuxのカーネルにおいて発見された脆弱性であるDirtyCOW(CVE-2016-519…]]></description><link>https://superconsole.work/190824/</link><guid isPermaLink="false">https://superconsole.work/190824/</guid><pubDate>Sat, 24 Aug 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;　2016年にLinuxのカーネルにおいて発見された脆弱性であるDirtyCOW(CVE-2016-5195)はレースコンディションと呼ばれるプロセスやスレッドによって生じるバグを悪用した攻撃になります。&lt;br&gt;
+レースコンディション(特にファイルレースコンディション)は同一のリソースに複数のプロセスやスレッドがアクセスした際に意図しない動作を引き起こしてしまう現象です。  &lt;/p&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 390px;&quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/ecaa8feb59ed9594f16178e6eb304f01/14f69/dirtycow.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 52.56410256410257%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsSAAALEgHS3X78AAABgUlEQVQoz5VRW0sCURD2N0Y/oELoKajoyYceMpIgSwk0kpQUTHsy8lIrXlLD1NT1tupmlmgXb6m76La6anNcpQhCG+bhzJzzzXzfdwTDUQwmMfxPCHjoeES/T9Uq1UKeoSk4zwTmel26XqXrtRh2aZNLfHp1xueCJmICIyaM+BLlpIPA5UfSf659ySTxa3MhQ5BxvEgk+NdTNgNPwo3xRSlLRJyYS3v8mstC2W42YE+f67FMu89xbKfN0K1OqwGkeuwnArNMx3K4a9wWXcgk7jONfnNdsTRfTOJwp1lZOF0VWuUSq2wn4bCFTAbl4px2TajbWC7nHxAYuFmVBzqxyKY7sRt0+K0nGbx7ikXgzq7cN0vFIZMx5bwqpROk/8Ys3QKBDpUcWIw0DwbpoN+0J8Y0R5hakUvEyGi4QzV/av5LPDKMDAdcWlXa72lV3sn7QMrrYigK+qATFI/sHTsMnZEL3De4UX5Lep28Sc/xKI5Z6I/6TG6jf+52IdHUaTx/xRfdvlXNdV6bnAAAAABJRU5ErkJggg==&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;dirtycow&quot; title=&quot;dirtycow&quot; src=&quot;/static/ecaa8feb59ed9594f16178e6eb304f01/14f69/dirtycow.png&quot; srcset=&quot;/static/ecaa8feb59ed9594f16178e6eb304f01/cf440/dirtycow.png 148w,
+/static/ecaa8feb59ed9594f16178e6eb304f01/d2d38/dirtycow.png 295w,
+/static/ecaa8feb59ed9594f16178e6eb304f01/14f69/dirtycow.png 390w&quot; sizes=&quot;(max-width: 390px) 100vw, 390px&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;h2&gt;「レースコンディション」&lt;/h2&gt;
+&lt;p&gt;例として同一の変数xを二つのプロセスが参照し、片方のプロセスAが変数の値を+3インクリメントし、もう片方のプロセスBが変数の値を+2インクリメントする場合を想定した場合、
+正常に順番通り実行されれば結果として変数の値が+5インクリメントされますが、プロセスAとプロセスBが同時に読み込み時間差でプロセスBが書き込む、といった状況が生じた時に結果として変数の値が+2インクリメントされた
+状態で結果が返ります。こういった具合で本来想定していた結果と異なる状態になってしまうことをレースコンディションといいます。 &lt;/p&gt;
+&lt;h2&gt;「COW機構とDirtyCOW」&lt;/h2&gt;
+&lt;p&gt;DirtyCOWはLinuxカーネル上のCOW機構(Copy-on-Write)におけるセキュリティホールです。
+COW機構はデータをプロセスごとにコピーしてメモリ上に展開する際に、変更要求が生じるまではコピーせずに同一のリソースを参照させるというコンピュータにおける最適化戦略です。&lt;br&gt;
+COWによりメモリの負荷を軽減, 無駄なリソースのコピーを防ぐことが可能です。&lt;br&gt;
+しかし、COW機構において同一のリソースを参照させるという点に脆弱性につながるバグがあったというわけです。以下に、ソースコードから読み取った権限昇格までの流れを示します。完全に意訳して書いているのでより完全に理解したければソースコードを読みましょう。そこまで、難しいことは書いてないです。&lt;/p&gt;
+&lt;h2&gt;DirtyCOWによって権限昇格するまでの流れ(&lt;a href=&quot;https://github.com/dirtycow/dirtycow.github.io/blob/master/dirtyc0w.c&quot;&gt;dirtyc0w.c&lt;/a&gt;より):&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;同一リソース(例では、ファイル)に対して二つのスレッドを同時に100,000,000回実行する&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;一つ目は展開されたメモリ上のファイルに対して領域を解放するシグナル(MADV_DONTNEED)を送信するスレッド&lt;/code&gt;&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;二つ目はメモリ上のファイルが存在する領域にプロセスの擬似ファイル*を直接指定することでアクセスし、書き込みを要求するスレッド&lt;/code&gt;&lt;br&gt;
+&lt;small&gt;*一つ目のスレッドが参照しているメモリの場所&lt;/small&gt;&lt;/li&gt;
+&lt;li&gt;レースコンデイションが発生した場合にメモリ上のファイルへの書き込みが完了する&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;管理者権限が必要なファイルに対しても権限をチェックする前に書き込みが行われるため、権限のバイパス、権限昇格が可能になる&lt;/code&gt;  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;本来であれば、ソースコードの61行目である&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;int f=open(&amp;quot;/proc/self/mem&amp;quot;,O_RDWR);&lt;/code&gt;&lt;br&gt;
+のところで、ファイルが読み取り専用なので読み書き(O_RDWRフラグ)じゃ開けないよとエラーが返るはずなのですが、レースコンディションのせいで開けてしまった…権限バイパスして書き込めちゃった…っていうのがDirtyCOWです。  &lt;/p&gt;
+&lt;p&gt;試してみます。&lt;/p&gt;
+&lt;h2&gt;DirtyCOWによる権限昇格の脆弱性検証:&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;DirtyCOW(CVE-2016-5195)の脆弱性を持つLinuxカーネルを仮想環境に構築する&lt;br&gt;
+&lt;small&gt;*検証環境としてUbuntu 14.04で行う&lt;/small&gt;  &lt;/li&gt;
+&lt;li&gt;Ubuntu14.04を手順に沿ってセットアップする&lt;br&gt;
+&lt;small&gt;rootではない検証用のユーザを作成したりとか…&lt;/small&gt;&lt;/li&gt;
+&lt;li&gt;GitHubより&lt;a href=&quot;https://github.com/dirtycow/dirtycow.github.io/blob/master/dirtyc0w.c&quot;&gt;dirtyc0w.c&lt;/a&gt;をダウンロードする&lt;/li&gt;
+&lt;li&gt;管理者読み取り専用ファイルを作成し、管理者権限でないことを確認(既に管理者権限であれば検証の意味…)&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;$sudo echo &amp;quot;this is read only.you can&amp;#39;t write anything&amp;quot; &amp;gt; foo&lt;/code&gt;&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;$sudo chmod 0404 foo&lt;/code&gt;&lt;br&gt;
+&lt;small&gt;普通に読み取り専用ファイルをvimで編集しようとすると[readonly]と表示が出て書き込みができない&lt;/small&gt;&lt;/li&gt;
+&lt;li&gt;ダウンロードした&lt;a href=&quot;https://github.com/dirtycow/dirtycow.github.io/blob/master/dirtyc0w.c&quot;&gt;dirtyc0w.c&lt;/a&gt;をコンパイル&amp;#x26;実行&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;$gcc -pthread dirtyc0w.c -o dirtyc0w&lt;/code&gt;&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;$./dirtyc0w foo hogehoge&lt;/code&gt;  &lt;/li&gt;
+&lt;li&gt;手順が正しければ書き込みが成功する。&lt;br&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/0f32dcde6f2e286bfa40c579121d0dc5/7b680/poc-result.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 56.57534246575342%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsSAAALEgHS3X78AAABk0lEQVQoz31RaW+CQBDlS+sRtTapV6utwQOwCLgcIiCggoJ3rKTt//8jfVtNE41p8rLZgZ15xzAfWvxlbtfidCeFR2215H2vbujFd7UgaA89kudJgdcKPTUv4AtKesnTXyiZRWecaKtp03SftVnTmrwOnSoZ11S7QoxHEbDKilMjdmXgVAejkmyVB7h7dR1vmJ0cbMTZXp6HrLXtB+BftMdLzg9YO2zZeK1ku/1US0q1/06Ke3oyBzVK9HWir6Kuu1cWO3m+6Lghay/5ybztgBZA/wlypiNnKU4lmEPQ7qQ5XqPtV7kJQr9hoI3kBZLjKGe6TTsvwSTDFTwfSISoEmPzbe8RGyxBSMx5OGfNEbJxauogx12NYLZSuBEDNMMtfLovuvkk2VWaEMinb6ZW7CmZLnKmgq+YIRLyMBuFeMeK9yzGn1LBHV9ObLdlu3UdbFgM5AWshR2eHaZvN1w0LwUfq4JhKIw4Dwn7dWPSGFolBUsmOf6fEcxRiz+HWxqY4B9ITHfGeTHn0p11Xfg/b+gWfgCVBXDkFRGKXAAAAABJRU5ErkJggg==&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;poc result&quot; title=&quot;poc result&quot; src=&quot;/static/0f32dcde6f2e286bfa40c579121d0dc5/b9e4f/poc-result.png&quot; srcset=&quot;/static/0f32dcde6f2e286bfa40c579121d0dc5/cf440/poc-result.png 148w,
+/static/0f32dcde6f2e286bfa40c579121d0dc5/d2d38/poc-result.png 295w,
+/static/0f32dcde6f2e286bfa40c579121d0dc5/b9e4f/poc-result.png 590w,
+/static/0f32dcde6f2e286bfa40c579121d0dc5/7b680/poc-result.png 730w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;small&gt;(なんか思ってたのと違うけど面白いのでこれを採用しました笑)&lt;/small&gt;&lt;/p&gt;
+&lt;p&gt;　この脆弱性を悪用してユーザ権限を管理しているファイル(&lt;code class=&quot;language-text&quot;&gt;/etc/passwd&lt;/code&gt; &lt;code class=&quot;language-text&quot;&gt;/etc/group&lt;/code&gt; &lt;code class=&quot;language-text&quot;&gt;/etc/shadow&lt;/code&gt;など)を書き換えれば半永久的な権限を取得できたりする&lt;a href=&quot;#2&quot;&gt;&lt;small&gt;*2&lt;/small&gt;&lt;/a&gt;ので、脆弱性による被害は大きくなる。&lt;br&gt;
+リモートからのコード実行やソーシャルエンジニアリングによる侵入が無ければそもそも使えないものの、Linuxのカーネルレベルで存在するところはかなり厄介だ。&lt;br&gt;
+また、DirtyCOWの&lt;a href=&quot;https://github.com/dirtycow/dirtycow.github.io/wiki/PoCs&quot;&gt;PoC&lt;/a&gt;が多く用意され、用意に攻撃が行えることも被害が大きくなる原因となっている。
+かなり昔の脆弱性なので最新のLinuxディストリビューションを使用していれば被害にあうことはまずない。心がけたい。
+今後の反省点としてはPoCを用いた検証画面にオシャレなオチを取り入れて記事に勢いをつけたいですね笑。かっこいい検証ようペイロードを考えないと。おわり。&lt;/p&gt;
+&lt;p&gt;&lt;small id=&quot;2&quot;&gt;*2&lt;/small&gt; &lt;a href=&quot;https://gist.github.com/rverton/e9d4ff65d703a9084e85fa9df083c679&quot;&gt;cowroot.c&lt;/a&gt;はDirtyCOWを利用したroot権限への昇格を可能にしている。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[WhonixによるTorゲートウェイの構築及び仮想マシンにおけるIPアドレス匿名化の検証]]></title><description><![CDATA[WhonixはTailsLinuxと同様にOS内の全通信を「Tor経由」で行うことでセキュアな通信を実現するOSです。TailsLinuxと異なる利点としては「Whonix Gateway」と呼ばれる中継機能を容易に構築できる点です。このWhonix Gateway…]]></description><link>https://superconsole.work/190801/</link><guid isPermaLink="false">https://superconsole.work/190801/</guid><pubDate>Thu, 01 Aug 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;　WhonixはTailsLinuxと同様にOS内の全通信を「Tor経由」で行うことでセキュアな通信を実現するOSです。TailsLinuxと異なる利点としては「Whonix Gateway」と呼ばれる中継機能を容易に構築できる点です。このWhonix Gatewayを構築し、任意の仮想マシンのデフォルトゲートウェイに設定することで全通信がTor経由になります。Torの問題点であるDNS漏れについてもTor以外の通信をWhonixが遮断することにより解消されている(これはTailsLinuxも同様)のも大きな利点になっています。  &lt;/p&gt;
 &lt;p&gt;構築フロー:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;公式サイト(&lt;a href=&quot;https://www.whonix.org/download/&quot;&gt;https://www.whonix.org/download/&lt;/a&gt;)からOVA(Open Virtualization Format)形式のファイルをダウンロード&lt;br&gt;
@@ -85,7 +148,7 @@ proxy: 127.0.0.1 / port: 57777&lt;br&gt;
 &lt;p&gt;次は気が向いたら似たようなアプリであるBurp Suiteに触れた所感を書こうかなーと思っていたりいなかったりですね。おわり。  &lt;/p&gt;
 &lt;p&gt;＊追記: HTTPヘッダの設定とセキュリティについていい感じのサイトを見つけたのでメモ&lt;br&gt;
 セキュリティを強化する7つの便利なHTTPヘッダ / &lt;a href=&quot;https://devcentral.f5.com/s/articles/7http&quot;&gt;https://devcentral.f5.com/s/articles/7http&lt;/a&gt;&lt;br&gt;
-&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Apache Struts 2におけるリモートコード実行[CVE-2018-11776]の脆弱性検証]]></title><description><![CDATA[某セキュリティ会社が発行している「JSOC INSIGHT」のvol.22にて「Apache Struts 2におけるリモートコード実行の脆弱性」が取り上げられていたので持ち前の情報収集力を生かしてこの脆弱性を再現・検証したのでそれをまとめます。
+&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Apache Struts 2におけるリモートコード実行(CVE-2018-11776)の脆弱性検証]]></title><description><![CDATA[某セキュリティ会社が発行している「JSOC INSIGHT」のvol.22にて「Apache Struts 2におけるリモートコード実行の脆弱性」が取り上げられていたので持ち前の情報収集力を生かしてこの脆弱性を再現・検証したのでそれをまとめます。
 まず、この脆弱性はURL…]]></description><link>https://superconsole.work/190702/</link><guid isPermaLink="false">https://superconsole.work/190702/</guid><pubDate>Tue, 02 Jul 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;　某セキュリティ会社が発行している「JSOC INSIGHT」のvol.22にて「Apache Struts 2におけるリモートコード実行の脆弱性」が取り上げられていたので持ち前の情報収集力を生かしてこの脆弱性を再現・検証したのでそれをまとめます。
 まず、この脆弱性はURLに数値計算式またはOSコマンドを実行するOGNL文をインジェクションすることで悪用されます。Apache Struts2の設定ファイルである「struts.xml」において、&lt;br&gt;
 ・「alwaysSelectFullNamespace」をtrueにしている&lt;br&gt;
