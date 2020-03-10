@@ -1,0 +1,585 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font:100%/1.75 'Merriweather','Georgia',serif;box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.9);font-family:'Merriweather','Georgia',serif;font-weight:400;word-wrap:break-word;font-kerning:normal;-moz-font-feature-settings:"kern", "liga", "clig", "calt";-ms-font-feature-settings:"kern", "liga", "clig", "calt";-webkit-font-feature-settings:"kern", "liga", "clig", "calt";font-feature-settings:"kern", "liga", "clig", "calt";}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;}h1{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;color:inherit;font-family:Montserrat,sans-serif;font-weight:900;text-rendering:optimizeLegibility;font-size:2.5rem;line-height:1.1;}h2{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;color:inherit;font-family:'Merriweather','Georgia',serif;font-weight:900;text-rendering:optimizeLegibility;font-size:1.73286rem;line-height:1.1;}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;color:inherit;font-family:'Merriweather','Georgia',serif;font-weight:900;text-rendering:optimizeLegibility;font-size:1.4427rem;line-height:1.1;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;color:inherit;font-family:'Merriweather','Georgia',serif;font-weight:900;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.1;letter-spacing:0.140625em;text-transform:uppercase;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;color:inherit;font-family:'Merriweather','Georgia',serif;font-weight:900;text-rendering:optimizeLegibility;font-size:0.83255rem;line-height:1.1;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;color:inherit;font-family:'Merriweather','Georgia',serif;font-weight:900;text-rendering:optimizeLegibility;font-size:0.75966rem;line-height:1.1;font-style:italic;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;}ul{margin-left:1.75rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;list-style-position:outside;list-style-image:none;list-style:disc;}ol{margin-left:1.75rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;font-size:0.85rem;line-height:1.75rem;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;font-size:1rem;line-height:1.75rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;}blockquote{margin-left:-1.75rem;margin-right:1.75rem;margin-top:0;padding-bottom:0;padding-left:1.42188rem;padding-right:0;padding-top:0;margin-bottom:1.75rem;font-size:1.20112rem;line-height:1.75rem;color:hsla(0,0%,0%,0.59);font-style:italic;border-left:0.32813rem solid hsla(0,0%,0%,0.9);}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(1.75rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;}b{font-weight:700;}strong{font-weight:700;}dt{font-weight:700;}th{font-weight:700;}li{margin-bottom:calc(1.75rem / 2);}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.75rem;margin-bottom:calc(1.75rem / 2);margin-top:calc(1.75rem / 2);}li > ul{margin-left:1.75rem;margin-bottom:calc(1.75rem / 2);margin-top:calc(1.75rem / 2);}blockquote *:last-child{margin-bottom:0;}li *:last-child{margin-bottom:0;}p *:last-child{margin-bottom:0;}li > p{margin-bottom:calc(1.75rem / 2);}code{font-size:0.85rem;line-height:1.75rem;}kbd{font-size:0.85rem;line-height:1.75rem;}samp{font-size:0.85rem;line-height:1.75rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";padding-left:1.16667rem;padding-right:1.16667rem;padding-top:0.875rem;padding-bottom:calc(0.875rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}blockquote > :last-child{margin-bottom:0;}blockquote cite{font-size:1rem;line-height:1.75rem;color:hsla(0,0%,0%,0.9);font-weight:400;}blockquote cite:before{content:"— ";}ul,ol{margin-left:0;}@media only screen and (max-width:480px){ul,ol{margin-left:1.75rem;}blockquote{margin-left:-1.3125rem;margin-right:0;padding-left:0.98438rem;}}h1,h2,h3,h4,h5,h6{margin-top:3.5rem;}a{box-shadow:0 1px 0 0 currentColor;color:#007acc;text-decoration:none;}a:hover,a:active{box-shadow:none;}mark,ins{background:#007acc;color:white;padding:0.10938rem 0.21875rem;text-decoration:none;}a.gatsby-resp-image-link{box-shadow:none;}</style><meta data-react-helmet="true" name="description" content="SuperConsole is A Composer &amp; Web Designer / _spxn is secure blogger /"/><style type="text/css">.gatsby-resp-image-image{width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;color:transparent;}</style><link rel="preconnect dns-prefetch" href="https://www.google-analytics.com"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><link rel="shortcut icon" href="/icons/icon-48x48.png?v=cb986fd897461a6812ab0b500b493edb"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#111"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=cb986fd897461a6812ab0b500b493edb"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=cb986fd897461a6812ab0b500b493edb"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=cb986fd897461a6812ab0b500b493edb"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=cb986fd897461a6812ab0b500b493edb"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=cb986fd897461a6812ab0b500b493edb"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=cb986fd897461a6812ab0b500b493edb"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=cb986fd897461a6812ab0b500b493edb"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=cb986fd897461a6812ab0b500b493edb"/><title data-react-helmet="true">Torによる通信経路匿名化の仕組みと応用 | SpXn-Blog</title><meta name="generator" content="Gatsby 2.19.34"/><meta data-react-helmet="true" property="og:title" content="Torによる通信経路匿名化の仕組みと応用"/><meta data-react-helmet="true" property="og:description" content="SuperConsole is A Composer &amp; Web Designer / _spxn is secure blogger /"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="_spxn"/><meta data-react-helmet="true" name="twitter:title" content="Torによる通信経路匿名化の仕組みと応用"/><meta data-react-helmet="true" name="twitter:description" content="SuperConsole is A Composer &amp; Web Designer / _spxn is secure blogger /"/><style data-href="/styles.54fe6655578a18f8b07e.css">@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);@import url(https://fonts.googleapis.com/css?family=Sawarabi+Mincho);@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:100;src:local("Montserrat Thin "),local("Montserrat-Thin"),url(/static/montserrat-latin-100-191cc9f50f3b76b9617cb383f19acb7d.woff2) format("woff2"),url(/static/montserrat-latin-100-370318464551d5f25b0f0a78f374faac.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:100;src:local("Montserrat Thin italic"),local("Montserrat-Thinitalic"),url(/static/montserrat-latin-100italic-bdeaeb79db315697bd173a55b097dc18.woff2) format("woff2"),url(/static/montserrat-latin-100italic-ecf7d49386e8f265878e735db34a7c4b.woff) format("woff")}@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:200;src:local("Montserrat Extra Light "),local("Montserrat-Extra Light"),url(/static/montserrat-latin-200-85d5ef9db7f2dc6979172a4a3b2c57cb.woff2) format("woff2"),url(/static/montserrat-latin-200-1fc98e126a3d152549240e6244d7e669.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:200;src:local("Montserrat Extra Light italic"),local("Montserrat-Extra Lightitalic"),url(/static/montserrat-latin-200italic-49095760a498d024fe1a85a078850df9.woff2) format("woff2"),url(/static/montserrat-latin-200italic-fe46cf8b9462c820457d3bf537e4057f.woff) format("woff")}@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:300;src:local("Montserrat Light "),local("Montserrat-Light"),url(/static/montserrat-latin-300-7c3daf12b706645b5d3710f863a4da04.woff2) format("woff2"),url(/static/montserrat-latin-300-8dc95fab9cf98d02ca8d76e97d3dff60.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:300;src:local("Montserrat Light italic"),local("Montserrat-Lightitalic"),url(/static/montserrat-latin-300italic-f20b178ca2024a5eac8e42e6649db86c.woff2) format("woff2"),url(/static/montserrat-latin-300italic-3fe16939288856e8e828fa2661bf2354.woff) format("woff")}@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:400;src:local("Montserrat Regular "),local("Montserrat-Regular"),url(/static/montserrat-latin-400-bc3aa95dca08f5fee5291e34959c27bc.woff2) format("woff2"),url(/static/montserrat-latin-400-8102c4838f9e3d08dad644290a9cb701.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:400;src:local("Montserrat Regular italic"),local("Montserrat-Regularitalic"),url(/static/montserrat-latin-400italic-5cad650422a7184467af5a4d17b264c4.woff2) format("woff2"),url(/static/montserrat-latin-400italic-d191f22af3bb50902b99ac577f81a322.woff) format("woff")}@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:500;src:local("Montserrat Medium "),local("Montserrat-Medium"),url(/static/montserrat-latin-500-92d16e458625f4d2c8940f6bdca0ff09.woff2) format("woff2"),url(/static/montserrat-latin-500-8b763220218ffc11c57c84ddb80e7b26.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:500;src:local("Montserrat Medium italic"),local("Montserrat-Mediumitalic"),url(/static/montserrat-latin-500italic-47bfcca6b69d6a9acca7a8bff17193e2.woff2) format("woff2"),url(/static/montserrat-latin-500italic-72c01f753c3940c0b9cb6bf2389caddf.woff) format("woff")}@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:600;src:local("Montserrat SemiBold "),local("Montserrat-SemiBold"),url(/static/montserrat-latin-600-6fb1b5623e528e27c18658fecf5ee0ee.woff2) format("woff2"),url(/static/montserrat-latin-600-7c839d15a6f54e7025ba8c0c4b333e8f.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:600;src:local("Montserrat SemiBold italic"),local("Montserrat-SemiBolditalic"),url(/static/montserrat-latin-600italic-60789af1c9338ed1a9546722ec54b4f7.woff2) format("woff2"),url(/static/montserrat-latin-600italic-f3d4de8d0afb19e777c79032ce828e3d.woff) format("woff")}@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:700;src:local("Montserrat Bold "),local("Montserrat-Bold"),url(/static/montserrat-latin-700-39d93cf678c740f9f6b2b1cfde34bee3.woff2) format("woff2"),url(/static/montserrat-latin-700-80f10bd382f0df1cd650fec59f3c9394.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:700;src:local("Montserrat Bold italic"),local("Montserrat-Bolditalic"),url(/static/montserrat-latin-700italic-ba136d97b14e82284dd595e257f11c47.woff2) format("woff2"),url(/static/montserrat-latin-700italic-8c98142b425630821139c24bd1698700.woff) format("woff")}@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:800;src:local("Montserrat ExtraBold "),local("Montserrat-ExtraBold"),url(/static/montserrat-latin-800-b7018be9ed6cd94da8b6675b3a468c3b.woff2) format("woff2"),url(/static/montserrat-latin-800-9a9befcf50d64f9d2d19d8b1d1984add.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:800;src:local("Montserrat ExtraBold italic"),local("Montserrat-ExtraBolditalic"),url(/static/montserrat-latin-800italic-540ffdd223d1a9ad3d4e678e1a23372e.woff2) format("woff2"),url(/static/montserrat-latin-800italic-897086f99f4e1f45e6b1e9368527d0bc.woff) format("woff")}@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:900;src:local("Montserrat Black "),local("Montserrat-Black"),url(/static/montserrat-latin-900-58cd789700850375b834e8b6776002eb.woff2) format("woff2"),url(/static/montserrat-latin-900-26d42c9428780e545a540bbb50c84bce.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:900;src:local("Montserrat Black italic"),local("Montserrat-Blackitalic"),url(/static/montserrat-latin-900italic-451157bc8861fe54f523b3669a3def71.woff2) format("woff2"),url(/static/montserrat-latin-900italic-a8ec4957e1c24f5793305763ad9845b3.woff) format("woff")}@font-face{font-family:Merriweather;font-style:normal;font-display:swap;font-weight:300;src:local("Merriweather Light "),local("Merriweather-Light"),url(/static/merriweather-latin-300-b1158cfcd4aacb9d8fb61625e37af46a.woff2) format("woff2"),url(/static/merriweather-latin-300-cc7de05e166e90320d7d896e0f72a19d.woff) format("woff")}@font-face{font-family:Merriweather;font-style:italic;font-display:swap;font-weight:300;src:local("Merriweather Light italic"),local("Merriweather-Lightitalic"),url(/static/merriweather-latin-300italic-8fe52a48089d6ebe46db0b8e7cc66263.woff2) format("woff2"),url(/static/merriweather-latin-300italic-e1331f5397c2a673f9d3765138debdb5.woff) format("woff")}@font-face{font-family:Merriweather;font-style:normal;font-display:swap;font-weight:400;src:local("Merriweather Regular "),local("Merriweather-Regular"),url(/static/merriweather-latin-400-8276fdb72ae8f4714d4e6eba704cc39f.woff2) format("woff2"),url(/static/merriweather-latin-400-69f09800f4f6479d06e44eba837df872.woff) format("woff")}@font-face{font-family:Merriweather;font-style:italic;font-display:swap;font-weight:400;src:local("Merriweather Regular italic"),local("Merriweather-Regularitalic"),url(/static/merriweather-latin-400italic-3a9be9ea9f7aa4af6de7307df21d9fc0.woff2) format("woff2"),url(/static/merriweather-latin-400italic-d76079ed7541a433a54f79316de086e9.woff) format("woff")}@font-face{font-family:Merriweather;font-style:normal;font-display:swap;font-weight:700;src:local("Merriweather Bold "),local("Merriweather-Bold"),url(/static/merriweather-latin-700-fa534be7ffa380e39a7f6e03bf9a5e03.woff2) format("woff2"),url(/static/merriweather-latin-700-ba56ea84b8084b7ff9677f50d3cd81bd.woff) format("woff")}@font-face{font-family:Merriweather;font-style:italic;font-display:swap;font-weight:700;src:local("Merriweather Bold italic"),local("Merriweather-Bolditalic"),url(/static/merriweather-latin-700italic-1ef5edaaa20ae53ea50399884c5e48c6.woff2) format("woff2"),url(/static/merriweather-latin-700italic-534bc9e7ce93c73d73426e46acd78092.woff) format("woff")}@font-face{font-family:Merriweather;font-style:normal;font-display:swap;font-weight:900;src:local("Merriweather Black "),local("Merriweather-Black"),url(/static/merriweather-latin-900-7528fb70e8a4a82c7305e72ff43ac25f.woff2) format("woff2"),url(/static/merriweather-latin-900-3799b6e2f5ed3fcccf9d7a708d7419fa.woff) format("woff")}@font-face{font-family:Merriweather;font-style:italic;font-display:swap;font-weight:900;src:local("Merriweather Black italic"),local("Merriweather-Blackitalic"),url(/static/merriweather-latin-900italic-e1b4d2aaa78e12ad84aaf8a56321e4c2.woff2) format("woff2"),url(/static/merriweather-latin-900italic-2ae22f731b3424e8dbb4b37f7ca6e708.woff) format("woff")}body,h1,h2,h3,h4,h5,h6{font-family:Sawarabi Mincho;background:#111;color:#ddd}section{padding-left:1em}h1{font-size:20px!important;color:#eee!important}h2,h3,h4,h5,h6{font-size:20px}p{font-size:1em}a{font-family:Sawarabi Mincho;background:#111;color:#eee}a:hover{border-bottom:1px solid #777}code,img{background:#222;padding:5px}img{max-width:960px}blockquote{padding:0 0 0 1.42188rem;margin:0 1.75rem 1.75rem -1.75rem;font-size:1.20112rem;line-height:1.75rem;color:#777;font-style:italic;border-left:.32813rem solid rgba(0,0,0,.9)}</style><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link as="script" rel="preload" href="/app-ec620e4f0819bf2d2710.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-c3ad7a3a4bea24b35a9e.js"/><link as="script" rel="preload" href="/styles-16a2c02d72161eebe610.js"/><link as="script" rel="preload" href="/commons-18b4e8b46e1e892777f3.js"/><link as="script" rel="preload" href="/webpack-runtime-ba18fc302e729c2d83ae.js"/><link as="fetch" rel="preload" href="/page-data/200310/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div style="margin-left:auto;margin-right:auto;max-width:52.5rem;padding:2.625rem 1.3125rem"><header><h3 style="font-family:Montserrat, sans-serif;margin-top:0"><a style="box-shadow:none;text-decoration:none;color:inherit" href="/">SpXn-Blog</a></h3></header><main><article><header><h1 style="margin-top:1.75rem;margin-bottom:0">Torによる通信経路匿名化の仕組みと応用</h1><p style="font-size:0.83255rem;line-height:1.75rem;display:block;margin-bottom:1.75rem">March 10, 2020</p></header><section><p>これはQiitaで公開した記事と同じ内容になります.</p>
+<p><a href="https://qiita.com/SuperConsole/items/45c5922d5d7115cd8faf">Qiita版の記事</a></p>
+<h2>Torとは?</h2>
+<p>Torは<strong>通信経路の匿名化</strong>を行うソフトウェアです. </p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/5d7c1af7f48121717c0eb66436303f0e/4dacb/Tor.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 31.713554987212277%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsSAAALEgHS3X78AAABWElEQVQY022QzU7CQBSFeTofwAcxca9LthpdaUh0pRsjKBo1GmMgAfwhhIKmEhCKUmptSzu0nbZ02mM7TXDjl8zinpz5cmdy456MTv0d4ssHxuIUtuWCOh6o/XeiKEJK4C/gzrPMc3z4NIDn+lkvmV1Ckeu1h2hWBHQfexi9TfAfYkPCTaGBmTJfZi7xUCsKkLrTZRaxCLk4jmHPKNiCwTE93B7WUdq9x0iQeWnYnmBzZQ/51QPsrxX5Zily/weF9RKeyl0+x1GMMHHkWMj42imUBDjdvkNh4wSDZrbta3XAhedblURwBn1q8fxLVFHeqeLhqMk7KUuh7waglMIyCdRPHZO+irllw7ZtXqyVBBznr7gkxSIWPocy6pctPF93ULtogUUse3IqTD/VMAzougFCCBeZMxPqtwrGkmLMoGkal7EwgiSNIY0kKIoCx3WSexo86iEMQvwCiOe4cSxNmiAAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Tor.png"
+        title="Tor.png"
+        src="/static/5d7c1af7f48121717c0eb66436303f0e/b9e4f/Tor.png"
+        srcset="/static/5d7c1af7f48121717c0eb66436303f0e/cf440/Tor.png 148w,
+/static/5d7c1af7f48121717c0eb66436303f0e/d2d38/Tor.png 295w,
+/static/5d7c1af7f48121717c0eb66436303f0e/b9e4f/Tor.png 590w,
+/static/5d7c1af7f48121717c0eb66436303f0e/4dacb/Tor.png 782w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>TorをインストールしたPCでインターネットを利用するとPCは<strong>接続先から直接見えなくなります</strong>. </p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/a75eab6e75bd930eee236cff8a923988/4dacb/Tor-hidden.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 30.818414322250636%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsSAAALEgHS3X78AAABP0lEQVQY021RS0/CQBjsrzMe/Sf6B/SkRz0rxngx3hQ10cQYISVChJpYCwF5ibx8AAql3W4Xth13F1Mk8Uu+bGYyO5md1ZrlLqzMM0q5OupWC86QwHMpPGe+nHPIYf4EZDzjqOuDUQbfYxF2bQ9a2XzBg26hkK3gtdjBf1MxWrg5zGLUcyKO2BT35xaahfeIC3gALQwB59uD3XdVOvvLxbA3hj1wMJ1M0Sp+YGN5D5srB4itxUEJU5ffan3sC5y9KCgcBqHQc2h8yoXIh5F6hH6ZgZE0kb7OiTVQzTdQTDewvrSLsx0dsdVTDLpDZdDIdxHfTiBxlIOlVxX3axiILibwKYs6Uz2JTmQ/cu5OTBxvXaFd+pw/eUSRT9Vg3pbxlKxEKVXCUX88M/XYwsrk8iSEoN3sQGr/fsqCVmBZ2Q9WzLtjV4eaWwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Tor-hidden.png"
+        title="Tor-hidden.png"
+        src="/static/a75eab6e75bd930eee236cff8a923988/b9e4f/Tor-hidden.png"
+        srcset="/static/a75eab6e75bd930eee236cff8a923988/cf440/Tor-hidden.png 148w,
+/static/a75eab6e75bd930eee236cff8a923988/d2d38/Tor-hidden.png 295w,
+/static/a75eab6e75bd930eee236cff8a923988/b9e4f/Tor-hidden.png 590w,
+/static/a75eab6e75bd930eee236cff8a923988/4dacb/Tor-hidden.png 782w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<h2>仕組み</h2>
+<p>Torで通信経路を匿名化する仕組みは<strong>Torネットワーク</strong>と<strong>暗号化</strong>です.</p>
+<h3>Torネットワーク</h3>
+<p><strong>Torネットワーク</strong>と呼ばれるプロキシサーバによって構成されるネットワークがあります.
+(実体はSOCKSプロキシ経由による多段プロキシになります.)</p>
+<p>Torネットワーク内の一つ一つのプロキシはTor projectのボランティアによって構成された<strong>Torのためのプロキシサーバ</strong>(以下, <strong>Torノード</strong>)です. </p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/a5f815c90047de05e795ed4f9a19ca2f/4dacb/Tor-network.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 31.713554987212277%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsSAAALEgHS3X78AAABcElEQVQY00WQW08aURRG+YX+Fp+a+NgHn9QYn5rGxhCDSY3RPhCN2HppG6iokUux4AzIVGEQRhhwmIvMmVmeGRV38uVc9rfX2Wcnulqfq7xK5VRBrxtY5hjHcnHGHvajS/lE5e76nvHIpt8ZYvZGcc6V8pwnXNt7948cErpqUMpVY+n1B8Iw5C3Ui1vmZ9ZIftwlk85xU2xxV+0SBAHOo0d2u4T2V5/6AxGQEEJg9W2EH2ANHA6Sf9hZ+UFbMTBaJpvzGbJ7ZTYWd8l9L5D/WWbi+fRuB6zOfiOfrsSwMAjxJ0ICJcizn+LLsemytZTh89xXbgptfG/CRa7G+qc0/84UipcNlj+s86AP6DQMthcOOUqdUTpW4vpXoJgCo5eHXYvefxMhk47loRZa7CV/k/qyT2oxTe20KQt97KFL5Ved4mFtCoxYMTAaatSykDOI5hNL7qPuG9UmTUVDrWhkD85pa524k8j/Ei9rIM8T+aNnZuC1XhBHmBwAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Tor-network.png"
+        title="Tor-network.png"
+        src="/static/a5f815c90047de05e795ed4f9a19ca2f/b9e4f/Tor-network.png"
+        srcset="/static/a5f815c90047de05e795ed4f9a19ca2f/cf440/Tor-network.png 148w,
+/static/a5f815c90047de05e795ed4f9a19ca2f/d2d38/Tor-network.png 295w,
+/static/a5f815c90047de05e795ed4f9a19ca2f/b9e4f/Tor-network.png 590w,
+/static/a5f815c90047de05e795ed4f9a19ca2f/4dacb/Tor-network.png 782w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>PCが最初に接続するTorノードを<strong>entry-node</strong>(entry-guard), 接続先と接続を行うTorノードを<strong>exit-node</strong>といいます.
+(また, entry-nodeとexit-nodeの間の中継するTorノードは<strong>middle-relay</strong>または<strong>middle-node</strong>と呼ばれています.)</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/f829f407ecec359bc2510d6c895c6ada/4dacb/Tor-nodes.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 31.713554987212277%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsSAAALEgHS3X78AAABfElEQVQY002QW0sbYRRF8xP9KUIfCwVf7EsriE9qodQKFoOJaGNRc9W2xtGoiVNJvrGOuWc0TZgkc83MLDMRtAfOy2Hvxdk7UhMtKgWViyOZ8uVfDN3CHE52ZGMMLEpZhXq5jd4b0NE6qK07lKqC1tVwLBfLsF/1uklEXKnIp4J8qkApf8P/I85rzM98YXUuzuZ2DKkgcXJe4OZept5qcBIvoZaaL3rf84kEfsDg34jAA2vgcPD5N7HFJE3xwGOjz7d322Q3Dvm6EGV35yeZ/WssM6DX0FmZjXG6K09hIWfsekS8sYdtOtPjqGcSXThg5W2Uu2Ibz/XJ//jF2lKc/PcM+8dnvH+zxr2q8aB22fqQIr0uUcyIqf8VaDwDXWdMv9mnXW7iDA30Rgd5J8Pe4harS59Y/riBlLul2tF51IYUJ/1epSsvwJA1BYal+r5PEH5ZryOSh1TSKf4kElwn9lDSScrZHOJCoVrrk5UEuTOFrm4/xw37m0R2bZcnEaqsN4Gs4WUAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Tor-nodes.png"
+        title="Tor-nodes.png"
+        src="/static/f829f407ecec359bc2510d6c895c6ada/b9e4f/Tor-nodes.png"
+        srcset="/static/f829f407ecec359bc2510d6c895c6ada/cf440/Tor-nodes.png 148w,
+/static/f829f407ecec359bc2510d6c895c6ada/d2d38/Tor-nodes.png 295w,
+/static/f829f407ecec359bc2510d6c895c6ada/b9e4f/Tor-nodes.png 590w,
+/static/f829f407ecec359bc2510d6c895c6ada/4dacb/Tor-nodes.png 782w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p><strong>ワンポイント！</strong></p>
+<ul>
+<li>経由するTorノードのリスト(選択を行う母集団の意)はTorネットワーク上にある<a href="https://metrics.torproject.org/rs.html#search/flag:authority">ディレクトリサーバ</a>にアクセスして取得している.</li>
+</ul>
+<h3>暗号化</h3>
+<h4>暗号化される区間</h4>
+<p>PCからexit-nodeまで, データの中継を行う区間はすべてTorによって暗号化されています. </p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/17d7bd3bd07928e4f564001a22c9d865/4dacb/Tor-en.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 31.713554987212277%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsSAAALEgHS3X78AAABfElEQVQY00WQO2/aABRG+Yf9HZ06dG+7VM3UpZ06damaROpDKKoIJbVJlJBGYFJjggE7JrGwAQcwDz8xPjWWmt7hSvfT1dG9p2DdOjTP2jSqLUx1hL8MCL2IONjgr0JksZ/nK2fN1HKZjRd4S59gHRL6EYEXZnsBfjZ7C5/CfcemVqlzeSKhK3e0DYW+3UO+byIe13j95CMHb8rIbRX9xsS4HmbAHSTi/Ms1g5bFv9omWwq7tp77pDEM5wbvyi/Y+/6cU+0HetfgcK/M+VGDo7MqSk2iL17hmjaTgcOHZ1/5XVRyWLpN2cQJhWST5KdnEfbijvfHL3n1+SmydcFy5XIlNSlfXqCqHaRfAsX9Ig+dDnbP4ttbAeFTnT9CL4f+B3pRHrj+FHOmoU0U5oGTveahNgxuJJ2SWONn5QRNrDMzx7jjOc2SjFRqPQJ3rBy4k5qmae4gjDLBoUeSJPmCO1nhjpY4E5eRMaRbEdAEEb0qMjitMu2qj/7iMOYv+QqwmXCDn2gAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Tor-en.png"
+        title="Tor-en.png"
+        src="/static/17d7bd3bd07928e4f564001a22c9d865/b9e4f/Tor-en.png"
+        srcset="/static/17d7bd3bd07928e4f564001a22c9d865/cf440/Tor-en.png 148w,
+/static/17d7bd3bd07928e4f564001a22c9d865/d2d38/Tor-en.png 295w,
+/static/17d7bd3bd07928e4f564001a22c9d865/b9e4f/Tor-en.png 590w,
+/static/17d7bd3bd07928e4f564001a22c9d865/4dacb/Tor-en.png 782w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<h4>暗号アルゴリズム</h4>
+<p>Torノード間の通信における暗号アルゴリズムは<strong>AES(共通鍵暗号)</strong>です.</p>
+<p>各Torノードの持つ鍵を使ってノード間ごとに何重にも暗号化します. (この何重にも暗号を行う様が玉ねぎの皮のように見えることからThe Onion Router, Torの正式名称のもとになっています.)</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/77af597b241a999d18698f3a3d5ac0d3/4dacb/Tor-key.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 31.074168797953966%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsSAAALEgHS3X78AAABg0lEQVQY0y2RXW/SABSG+yP9G8YrL/0F3nipifEjMSZmmmhMljkgEQbbNLSlg0ILlhZqgbKxln7QljIeS/EkJ885yXvx5n0FS3OQmypio8uoY7IJE+bmCqmik8Q5aZKTRCl5siONt8Vm5OmRB226Kf58VzLyNwi6bHBVE7muSpjdGYdRKiqvn5zgWiZJuCJLMhzXIQwD4qi4F2uiICm18TrBVJyS+/0eoVhiP6XW/crb+nOq6hdGIx1FlLD1CvNxC306pSaeM7QNjIlPvW2wWITk2Rbt2uLN029YvaMZYfff7on4ksevHvHu5wskacRQ0zmr1blotuhpYz5+P+eyrSJ1HD6dXtDr2Mz+uLTP+nx4dopc1bib+QgPuweiKCLIPIbuDevkltu7AfaogTaQkAYy2kyhodzwuz+mZ7i0JJNhd8J8usDo/KX5Wab6/hfij/7RYbAKi5y2RQlpSd+dYA1EgqVZ5OWgaiqe7zGfe0ztZVnOoaiDPi6yDO4jlvY9nrvmHzWjsRNo/CkdAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Tor-key.png"
+        title="Tor-key.png"
+        src="/static/77af597b241a999d18698f3a3d5ac0d3/b9e4f/Tor-key.png"
+        srcset="/static/77af597b241a999d18698f3a3d5ac0d3/cf440/Tor-key.png 148w,
+/static/77af597b241a999d18698f3a3d5ac0d3/d2d38/Tor-key.png 295w,
+/static/77af597b241a999d18698f3a3d5ac0d3/b9e4f/Tor-key.png 590w,
+/static/77af597b241a999d18698f3a3d5ac0d3/4dacb/Tor-key.png 782w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>また, PC内のTorはTorサーキット(回線)の構築時に, create cellをentry-nodeに送り, DH(Diffie-Hellman鍵交換方式)によってセッション鍵を共有. 次に, relay extend cellをentry-nodeに送り, 次の経由Torノードのセッション鍵を共有…を繰り返して行います. </p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/fa41e1a53026cfe13ea5e8949f15b94c/843d0/Tor-build.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 259.2378752886836%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,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'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Tor-build.png"
+        title="Tor-build.png"
+        src="/static/fa41e1a53026cfe13ea5e8949f15b94c/b9e4f/Tor-build.png"
+        srcset="/static/fa41e1a53026cfe13ea5e8949f15b94c/cf440/Tor-build.png 148w,
+/static/fa41e1a53026cfe13ea5e8949f15b94c/d2d38/Tor-build.png 295w,
+/static/fa41e1a53026cfe13ea5e8949f15b94c/b9e4f/Tor-build.png 590w,
+/static/fa41e1a53026cfe13ea5e8949f15b94c/843d0/Tor-build.png 866w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<h2>ダークウェブ</h2>
+<p>まず, ダークウェブとは<strong>通常のPCではアクセスできないサイト群</strong>を指します. 文献によって曖昧な解釈がされがちですが, Googleの検索に出てこないウェブ(Gmailの受信トレイや学術記事や論文など)をディープウェブ, Torなどの怪しいツールを用いてのみアクセス可能なウェブ(ないし, 犯罪や非合法サービスの提供を目的としたウェブ)をダークウェブと呼ぶのが一般的です. </p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/ef372789e4de1cc2e0e77d1a3c412de8/4dacb/dark-web.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 31.074168797953966%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsSAAALEgHS3X78AAABL0lEQVQY022Q6W6CQBSFff8Xad+gSZMuWtfEEGVUcEGQYouxEkTZwa8Dxv5o/JKTSe7ce2buaViag9rVEd05YqATeGfic0J0ijkHsTwTpguF/c7G//7hqAgiLyAK07rnpmrmfIxoLEYmk/6ccXfGqDelyAsqLlzZmAYd5RXHavGpjwle3iCOuEdZlDQucvLkhWRxfjWShUJeVDxNdjSFg24cGK4DhOHhaxMS3/vrvakizwoa1Y+yNL/74sfK5+FZoa1aGN0es1aHpROSZtnVsLxjWMqiu9njrFwcw8XUbLydTxpnuLZPuznmvTVl2uyhDwRC81EHdp3Zf4p6ZWloz7+oslyMTdmssV27uNaB5chC9DVUma0iM1aHlsx7SetxiCm2lGVJlmT1hrlUHCb8AiOLwZjEvM1dAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="dark-web.png"
+        title="dark-web.png"
+        src="/static/ef372789e4de1cc2e0e77d1a3c412de8/b9e4f/dark-web.png"
+        srcset="/static/ef372789e4de1cc2e0e77d1a3c412de8/cf440/dark-web.png 148w,
+/static/ef372789e4de1cc2e0e77d1a3c412de8/d2d38/dark-web.png 295w,
+/static/ef372789e4de1cc2e0e77d1a3c412de8/b9e4f/dark-web.png 590w,
+/static/ef372789e4de1cc2e0e77d1a3c412de8/4dacb/dark-web.png 782w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>Torにおいて, ダークウェブを利用する際は<a href="https://www.torproject.org/download/">Tor Browser</a>を使ってサイトにアクセスすることが推奨されています。また, ダークウェブを提供するサーバはTor経由でのアクセスであることを認証している(厳密には微妙にニュアンスが違うけど…)のでTorを利用していればアクセスできます.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/30a3e5a6f3da92605d4d3245f1255f79/1d25d/firefox.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 30.215827338129497%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsSAAALEgHS3X78AAABIUlEQVQY012PW3eCMBCE+f8/jAdaK8gtCSAXFULkIrF9UpgusbXHPnxndyezOyeWG8TwQoaAJQh4Cj9OEDEOkaREguQHIcQLnHM4jgPbtuF53tNj+UGIzccW7m4HTiIXCXzfR8YC5Nnf8j7LUBQ58vxBQZRliaqqSC+euhXHEVxKeHfeELqeOez7IeKNDRF52JK2BkYxM2FpmpkqiIR6Rr9Jsz0YF+ZXVllWODVnlAdJaTXUoKH6CbLXkN1k+jPRdhc0ajDz2svz+PBRXedfzarrGofjCdWxRi0V+nHCZbq+MK5Vf2Kgt2Mt0aoO0/ULDfm7fjSetR8vGpZSClJKokFDx7WesCwL5vsd8/yfGUq1GIcBwIJ196o17rcbhr43nm9X0Lcpw41DIAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="firefox.png"
+        title="firefox.png"
+        src="/static/30a3e5a6f3da92605d4d3245f1255f79/b9e4f/firefox.png"
+        srcset="/static/30a3e5a6f3da92605d4d3245f1255f79/cf440/firefox.png 148w,
+/static/30a3e5a6f3da92605d4d3245f1255f79/d2d38/firefox.png 295w,
+/static/30a3e5a6f3da92605d4d3245f1255f79/b9e4f/firefox.png 590w,
+/static/30a3e5a6f3da92605d4d3245f1255f79/1d25d/firefox.png 834w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>Firefoxでは「network.dna.blockDotOnion」というダークウェブである”.onionドメイン”をブロックする設定がデフォルトで有効になっているのでこれをfalseにしなければアクセスできない仕様になっています.</p>
+<p><strong>ワンポイント！</strong></p>
+<ul>
+<li>Overlay-Networkとは, <strong>特定のソフトウェアからのみ利用できるネットワーク</strong>のこと. LINEやTikTokなどのアプリをインストールしないと使えないサービスをイメージしてもらえるとわかりやすい. TorもこのOverlay-Networkの一種で、他にはJXTA, I2P, Freenet, Gnutella, Torrentなどが挙げられる。</li>
+<li>.onionドメインはTorネットワーク上に存在するサーバが提供するため, 通信の末端までTorによる暗号化が保証される.すごいね！</li>
+</ul>
+<h2>Torの情報漏洩</h2>
+<p>Torは場合によって匿名化が損なわれる可能性があります. </p>
+<h3>entry-nodeに存在する弱み</h3>
+<p>entry-nodeはPCから直接通信を行うため, PCのIPアドレスを知っているケースが多いです.そのため, このentry-nodeを運営している組織または個人がPCのIPアドレスを漏洩または開示する可能性があります.</p>
+<p><img src="./entry-leak.pngg" alt="entry-leak.png"></p>
+<p>この問題は, Torネットワークへの接続の前段に信頼されたVPNを挟むことで解決されます.</p>
+<h3>exit-nodeに存在する弱み</h3>
+<p>exit-nodeはTorネットワークの出口になるため, 復号化された通信データを知っているケースが多いです. そのため, このexit-nodeを運営している組織または個人がPCの通信データを漏洩または開示する可能性があります. </p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/cdaf9a6f1c2950f81f8d92819e094c35/93430/exit-leak.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 31.63265306122449%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsSAAALEgHS3X78AAABh0lEQVQY002R32/SYBSG+Q/9f7xconcmS7ww0UT8kWzZ1E0ytowWBkNF2RgLMhFkY4NCu7ajpVDaUloeP8ALT/Imb77vnOe8yUncNhTk1CnHn3K0a3dMHQ9v4uO7wcr/LLTptzScBwdLGzEUuu/bDO9HBKKnq1hc/e5TF9I0h0SvqSF9znP0UWbp/69WucvTR294tbHH/skRN3WFy0qHi2qL8x8dARiTKzd5ntxnO12ieWeRiKMY35mtAK7tkXldYm8zi9o2MXoWO0+Okd9LpA8K/KmpyIUaL97uImcvURWHjuogfb2ieNFB0ackonmEPw3WQMvnw7MMLx/vcCuGQ29GNpUnuZWmXjyjUb3mW+mGzXc5DqU612LpQISJxOxCaC7CrYDBdJ0wDOaM9Alm1yYKl+8hlUyF9JZMcnuX1GGes/MeB1KV7GkTy3AxvpfxG79Y2BYz3VgDl0dYxAsisSGO/0n4uYCOH1w8IXVgoA2GDPUxumpjiuPMxH/c7+F+KRKaJrOJx1+dgK4WQcQLywAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="exit-leak.png"
+        title="exit-leak.png"
+        src="/static/cdaf9a6f1c2950f81f8d92819e094c35/b9e4f/exit-leak.png"
+        srcset="/static/cdaf9a6f1c2950f81f8d92819e094c35/cf440/exit-leak.png 148w,
+/static/cdaf9a6f1c2950f81f8d92819e094c35/d2d38/exit-leak.png 295w,
+/static/cdaf9a6f1c2950f81f8d92819e094c35/b9e4f/exit-leak.png 590w,
+/static/cdaf9a6f1c2950f81f8d92819e094c35/93430/exit-leak.png 784w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>この問題は, HTTPSなどの暗号化を用いるプロトコルの利用により解決されます.(項目: <a href="#vpn%E3%81%A8%E3%81%AE%E4%BD%B5%E7%94%A8">VPNとの併用</a>を参照)</p>
+<h3>ブラウザに存在する弱み</h3>
+<p>アドオンとはFirefoxをはじめとしたブラウザにある機能を拡張するために外部から追加できる仕組みのことで, このアドオンがブラウザの通信とは別にTorを介さない(Torをバイパスした)通信を非同期に行うことがあり, これにより意図しない形でユーザの情報が漏洩することがあります.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/abddf41c71902cdbc336781f5781aaa6/4dacb/addon-leak.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 31.713554987212277%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsSAAALEgHS3X78AAABaUlEQVQY002Q3W7TQBCF84Q8BDdVn4AH6CtwWfWuXJQLjFRFbYJSUSioiUtLqpqIRsHgNE5Cmz/vrh3v2h8TEyRGOjqzM0dHs6cW9oa0z675eNrGf/+V8c/fpCqroJaa5TxhtVCshHWSYgTrLKcoi0pjtjMjvV4aar96MVfnt7SOP9DzB8ynKzZlnUVrQ2oMegOtK2xqFq8ILgaUZcn/VbiCWlGUqEUqLxE+zrhsX+L7Pr3gji/XHb5HUSXudDr07/ui1bzcOWLv2T4Xr2+qncsd4o4VrjnrSHVWLYbDIfV6nWazQRRJFKdH7O4+J5HLThoN7oJvZKnj1V6TgxfHdM8Hfy/bHmrt1tCotBoEQYD31sPzPMIw5Gk2583hIeMfA57ikXw1xpmE5WjKw9U9RRRiHyLcZIKTvVvnW0MJdZNHnlsJfE0uCyv9v4zUeEIyioXHKOFFX8xGEWm3i/78CXXWQrXekU0f+QOd8roYoWliCgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="addon-leak.png"
+        title="addon-leak.png"
+        src="/static/abddf41c71902cdbc336781f5781aaa6/b9e4f/addon-leak.png"
+        srcset="/static/abddf41c71902cdbc336781f5781aaa6/cf440/addon-leak.png 148w,
+/static/abddf41c71902cdbc336781f5781aaa6/d2d38/addon-leak.png 295w,
+/static/abddf41c71902cdbc336781f5781aaa6/b9e4f/addon-leak.png 590w,
+/static/abddf41c71902cdbc336781f5781aaa6/4dacb/addon-leak.png 782w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>この問題は, ブラウザのアドオンの無効化, Tor以外の通信を遮断するOS(TailsOSなど)の利用, もしくはTor Browserへの乗り換えによって解決されます.</p>
+<h3>DNSによる名前解決に存在する弱み</h3>
+<p>アプリケーションの中にはUDPを用いてDNS名前解決を行うものがあります. TCP専用のTorネットワークにおいて, このUDPに対応していない場合にTorのバイパスが生じることがあります.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/26afe967a605cfb09e61f340b4337f02/4dacb/dns-leak.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 31.713554987212277%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsSAAALEgHS3X78AAABdElEQVQY0yWQW2/TQBCF8x/5Tzwg8cgzEmr7gBAVorIB4ZIitaK3BELstGlSmcR24yS+xs468eVjvR3p6MxIu2fOnM7gyuL48IRPRxrmzZg8EYisYO0H+N5ScbAMidYx202ByAv2u1L2QiGXiKNMcZ4KOrblon/8zuf3Xxj8GpFtcrI8oygE3pNHt9slSRLiJKatclexdp77tp7ilDf6OXfuUs2duq6pC3BnHr1ej8urS4bDIUIUWJbF4cGRdLUjXIfUVc3x6x+8fPGWx9+OEvBWETcPMxzJNFKw3JfUZYM1stB1XWE+n9Mu6vf7GIahPkZhpPhaG/Hh1SmzyYJWwbRd3p31MN3Vs8OyrNgXJeOHMZqmYZwaLBYLeXJBEMgcfV+dm6YpTbmXy9scM7JgReM55P9s/MkjG9umjmM6lRTM06101CjLjeSqlDFUDc7cYSof39/dY/41uT6/YGqNSIOQZDJFmCbb21vEzzOyb1/J/gz4D3DquFqXmrONAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="dns-leak.png"
+        title="dns-leak.png"
+        src="/static/26afe967a605cfb09e61f340b4337f02/b9e4f/dns-leak.png"
+        srcset="/static/26afe967a605cfb09e61f340b4337f02/cf440/dns-leak.png 148w,
+/static/26afe967a605cfb09e61f340b4337f02/d2d38/dns-leak.png 295w,
+/static/26afe967a605cfb09e61f340b4337f02/b9e4f/dns-leak.png 590w,
+/static/26afe967a605cfb09e61f340b4337f02/4dacb/dns-leak.png 782w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>この問題は, DNS名前解決をTCP上で行うか, Tor以外の通信を遮断するOS(TailsOSなど)の利用によって解決されます.</p>
+<h3>つまりTorは脆弱?</h3>
+<p>いいえ.</p>
+<p>Torのもつ匿名性自体はかなり強固なものです.
+情報漏洩の多くはTorを使う<strong>ユーザのリテラシー不足によって生じる</strong>ということを念頭に入れるべきです. </p>
+<h2>VPNとの併用</h2>
+<p>Torを利用するにあたってその匿名性をより強固なものにしたい, Torネットワークに生IPでつなげるのが不安といった場合にVPNと併用してTorを使うという選択肢があります.</p>
+<p>VPNと併用する方法は, Torネットワークに接続する前にVPNを中継する<strong>Tor Over VPN</strong>とTorネットワーク越しにVPNにアクセスし, TorをまるごとVPNで包括する<strong>VPN Over Tor</strong>に分けられます.</p>
+<h3>Tor Over VPN</h3>
+<p>Torネットワークへの接続の前段にVPNを中継する「Tor Over VPN」.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/3ade932e4846aa5fa1ab1364b6bc3736/4dacb/tor-over-vpn.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 31.713554987212277%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsSAAALEgHS3X78AAABdUlEQVQY012Quy9DURzHu/IHsEnYDSazxCLMBkb/ARZSA4OIQVSEAWnupOmiXgmpeDQqiMajVFBU69GKlt5H23vbez/uQyT8kpPz/Z6c88n3fF0v8QxXR3ech6+JXzwh5mQKUglFLNp7UTa1ZGlnaSXNPrO0IhUol3Ss0Ypl800BVyL2QiQU5fLohvRDlv9j/PNSTvnjE4lHlgJLZDJp27sM3UDMyhweHLMVDBI5jZL51NiPq7R5DVrmDdZjFRu9NhNmuGOOxZFNZNEBe71eamtqCYVCDlCv6Hb09o52qqur6OruIXb2jifwRt04NE3D2LpEMvLAYOsswsAaY50CJ9tRG+CZ9NBQ34AgCKSSKRNoJvzK5VleWWZoyM1GcIdUWmbvVqV5FhqnYPXK6qmCb3SLhf4VAhO7vL869fj9ftxuN319vfh8PidhPieiqirZjyyaqmFUNKc9w/yqYcL0n+LVMvenz789WnVZ9xVZIfmURMxLfAOYPaF12a7bLAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="tor-over-vpn.png"
+        title="tor-over-vpn.png"
+        src="/static/3ade932e4846aa5fa1ab1364b6bc3736/b9e4f/tor-over-vpn.png"
+        srcset="/static/3ade932e4846aa5fa1ab1364b6bc3736/cf440/tor-over-vpn.png 148w,
+/static/3ade932e4846aa5fa1ab1364b6bc3736/d2d38/tor-over-vpn.png 295w,
+/static/3ade932e4846aa5fa1ab1364b6bc3736/b9e4f/tor-over-vpn.png 590w,
+/static/3ade932e4846aa5fa1ab1364b6bc3736/4dacb/tor-over-vpn.png 782w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/a8d051bd3402768aa405b1bc909ec9c5/4dacb/tor-over-vpn-2.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 31.713554987212277%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsSAAALEgHS3X78AAABZElEQVQY032QS0sCYRiF51+4auG6VYt+Qa2Ctv0QaRG5ixa2CAqiWhSWBOami12IbpRFBJZ0IymtmFERpZt+jnPTeZpvoKhNBw7vObxwOBxFfShxuHHC3toR2UwevWbQbBjowrsejV9a0jJt72/6WhdNHLOFhG046PUmytOtxs7KAfvJYx6vXsDlXzQ+mn+8qqokN5JUqhXfK27bxahbmLqNbdmYHnFbZCtt+hZceuZdtu9lC5et2TNG+udYHt2lIXQ/IBqNEggESKVS34FQKVe5vrkmnU5zmblCe8qydFqmYwy6piCyJdAunxnunWFhaJPIwCIXh7d+wOTEJMFgkFgsRrFYRGl7DT/ePtEKGrlcDlUr8F4tcZ6v0T0NnROQvJMNHeKje8wPrrM6fkS19OoHJhIJwuEwoVCIeDyO0nJa3vAmrred1HICSR+y/jfl8JZDPlNAvOs/b8u0EEJ4W2rUa4IvA3ip8fXyAlUAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="tor-over-vpn-2.png"
+        title="tor-over-vpn-2.png"
+        src="/static/a8d051bd3402768aa405b1bc909ec9c5/b9e4f/tor-over-vpn-2.png"
+        srcset="/static/a8d051bd3402768aa405b1bc909ec9c5/cf440/tor-over-vpn-2.png 148w,
+/static/a8d051bd3402768aa405b1bc909ec9c5/d2d38/tor-over-vpn-2.png 295w,
+/static/a8d051bd3402768aa405b1bc909ec9c5/b9e4f/tor-over-vpn-2.png 590w,
+/static/a8d051bd3402768aa405b1bc909ec9c5/4dacb/tor-over-vpn-2.png 782w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        loading="lazy"
+      />
+  </a>
+    </span>
+VPNが情報を開示しない限り接続先からはもちろん, Torネットワークのentry-nodeからもPCの存在が見えなくなり, Torの利用における匿名性の向上が期待できます.</p>
+<h4>メリット</h4>
+<ul>
+<li>PCのIPアドレスはVPNだけが把握している</li>
+<li>ISPはPCがTorネットワークに接続していることを知らない</li>
+</ul>
+<h4>デメリット</h4>
+<ul>
+<li>通信の遅延がTor単体に比べて大きくなる</li>
+<li>IPアドレス匿名化の信頼性がVPNに依存する</li>
+</ul>
+<h3>VPN Over Tor</h3>
+<p>Torネットワークの後段, Torネットワーク越しにVPNを中継する「VPN Over Tor」.
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/82826a160fd23d5e4a4d91d853b7348d/4dacb/vpn-over-tor.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 31.713554987212277%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsSAAALEgHS3X78AAABgklEQVQY032Qz0obYRTFs5W6DriTPIBPUOgD6KIILtx3bRZ1VTBSKnQhlBrcWLAJlvhfu1BoBElpEEshodFAU2ibOKbBQZ0xM5NvJvM5M79OZjaueuBy77mcezmcxN9fKrWTH5yf/uRP/RJDt7B7fYRp44g+si/D2cG2HHpmXFbEY8296zOAdO4jnlAaHSpfzmlUfnN9ccdD+J6PqQn+h1aryd7eLqqqRjwR+AGWLjg9+UqxWKRaraHpDh1F5136IwtPVykVqpF447vP1HpA+jDgxnCi3ftcjmQySblcjh8OXAhLMD4xzvCjIaamn7Ffscm++caLJ8tsvCzyarrAUVVjck0yughjSwH1lhaeB7xdypJKpcjn8yiKEj4MHXZ1g4PDAzKZDKXSZ8yu4KqpsTKzT2H+E8cfYocLpYCR1/B4Bdq3cRTbOzvMZeaYnX3O1uZW7NDQTNy+i67pUZdSRmLjtkfzrIMnvUGiuK6Hanh0hUcQ3g3ikq7EFg7tyzaWYfEPGyyg4D4b1koAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="vpn-over-tor.png"
+        title="vpn-over-tor.png"
+        src="/static/82826a160fd23d5e4a4d91d853b7348d/b9e4f/vpn-over-tor.png"
+        srcset="/static/82826a160fd23d5e4a4d91d853b7348d/cf440/vpn-over-tor.png 148w,
+/static/82826a160fd23d5e4a4d91d853b7348d/d2d38/vpn-over-tor.png 295w,
+/static/82826a160fd23d5e4a4d91d853b7348d/b9e4f/vpn-over-tor.png 590w,
+/static/82826a160fd23d5e4a4d91d853b7348d/4dacb/vpn-over-tor.png 782w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/0311b1ae2c5b0afe223384a4df6e9961/4dacb/vpn-over-tor2.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 31.713554987212277%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsSAAALEgHS3X78AAABZElEQVQY032QvUorURSF8xQBC5u8wH0BX8OnsLDQ1tuKndrZaCpRc1UUG0UwCaQLo4m/3IgxxiIkM3H+zpz5OXM+ZyadhQsWm7XZrL1YpffnT65Ob7g8ueGp3cO3AwJPIjLmU/phMXP67oyem+sQ4QYkUUqOWCaFLr09Drk+b3BRu+TFeOUntNb8hn7/jePjf4xGo0KXdKqJ/ATfEZimyfRrimVamBMT23TxpgHCj4rjo65mcV+zfKGZOLLY7e7tUS6XaTabM8MkUcRhQu+1R71ep9PpYtx2uL3r8v9lkFUgsSYCnSqWzjTzG/BnW3Pft/L8bG5tU6lUqFarDAYDSiozjGTMeDym1WrRbrepNxoYhsHD4wPWeEooVfF9owFz67CwA0NTzFLXaqz9XWN1dYXDg8OZYV5mFEZZ2R6u42J/2Ti2g5tpKUJUkpIqRRgpRo7CFgqtUvK64igmEJLhxxDP8fgGu1uxtu5dJ3kAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="vpn-over-tor2.png"
+        title="vpn-over-tor2.png"
+        src="/static/0311b1ae2c5b0afe223384a4df6e9961/b9e4f/vpn-over-tor2.png"
+        srcset="/static/0311b1ae2c5b0afe223384a4df6e9961/cf440/vpn-over-tor2.png 148w,
+/static/0311b1ae2c5b0afe223384a4df6e9961/d2d38/vpn-over-tor2.png 295w,
+/static/0311b1ae2c5b0afe223384a4df6e9961/b9e4f/vpn-over-tor2.png 590w,
+/static/0311b1ae2c5b0afe223384a4df6e9961/4dacb/vpn-over-tor2.png 782w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        loading="lazy"
+      />
+  </a>
+    </span>
+VPNのサービス事業者がログを開示したとしてもTorのexit-nodeのIPアドレスが開示されるだけなので, PCのIPを知ることは不可能です.</p>
+<h4>メリット</h4>
+<ul>
+<li>PCのIPアドレスはTorネットワークのentry-nodeだけが把握している</li>
+<li>Torネットワークのexit-nodeが通信データを見ることができない</li>
+<li>接続先はPCがTorネットワークを介していることを知らない(Tor禁止のサイトのアクセスが可能になる)</li>
+</ul>
+<h4>デメリット</h4>
+<ul>
+<li>通信の遅延がTor単体に比べて大きくなる</li>
+<li>ダークウェブにアクセスできない場合がある</li>
+<li>Torネットワークのentry-nodeは依然としてPCのIPアドレスを知っている</li>
+</ul>
+<h3>VPN Over [Tor Over VPN]</h3>
+<p>Torネットワークの前と後ろの両方にVPNを中継させる「VPN Over [Tor Over VPN]」.
+理論的には匿名性が最も強化される方法ではあるが, 遅延があまりに大きく運用に関してそもそも実用的ではない(有料VPNを二種類契約する必要がある等)ため一般に使われることはない.</p>
+<h2>おわりに</h2>
+<p>Torについて, またその周辺の技術について拙いながらも情報をまとめました. 不明な点もしくは間違いなどがあればここのコメント欄に連絡していただけると記事をより良いものにしていく励みになります. 最後まで読んでくださりありがとうございます.</p>
+<p>需要があればTor Over VPNやVPN Over Torの実際の構築のしかたも書こうかなと考えています.</p>
+<h2>参考文献</h2>
+<p>Wikipedia</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Tor_(anonymity_network)">Tor (en)</a></li>
+<li><a href="https://ja.wikipedia.org/wiki/Tor">Tor (ja)</a></li>
+</ul>
+<p>YouTube</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=JWII85UlzKw">How Tor Browser Protects Your Privacy and Identity Online</a></li>
+<li><a href="https://www.youtube.com/watch?v=LAcGiLL4OZU">How Tor Works - A ComputeCycle Deep Dive</a></li>
+<li><a href="https://www.youtube.com/watch?v=QRYzre4bf7I">Onion Routing - Computerphile</a></li>
+</ul></section><hr style="margin-bottom:1.75rem"/><footer><div style="display:flex;margin-bottom:0.875rem"><div class=" gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:50px;height:50px;margin-right:0.875rem;margin-bottom:0;min-width:50px;border-radius:100%"><img src="data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAIDBAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB8DVVaZAdkEAf/8QAHBAAAgICAwAAAAAAAAAAAAAAAAIBAxAREiEx/9oACAEBAAEFAvSyvSFTcLHfogmcf//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BH//EABsQAAEEAwAAAAAAAAAAAAAAAAEAAhExECAh/9oACAEBAAY/AkHVysSi0Mga/wD/xAAcEAEAAgIDAQAAAAAAAAAAAAABESEAEDFBUbH/2gAIAQEAAT8hBUBLkspxep1GNrvCvYzLqjipf3X/2gAMAwEAAgADAAAAEGAHAP/EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8QH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8QH//EABwQAQACAwEBAQAAAAAAAAAAAAERIQAQMUFRwf/aAAgBAQABPxAwpOAS5OUIStGvOVejaASAJkaTFXBE0z4nzShcZifDp/df/9k=" alt="[object Object]" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms;border-radius:50%"/><noscript><picture><source srcset="/static/88bdfc69a1a033256cdc9417ee7d49ab/9b664/profile-pic.jpg 1x,
+/static/88bdfc69a1a033256cdc9417ee7d49ab/06a10/profile-pic.jpg 1.5x,
+/static/88bdfc69a1a033256cdc9417ee7d49ab/f1b5a/profile-pic.jpg 2x" /><img loading="lazy" width="50" height="50" srcset="/static/88bdfc69a1a033256cdc9417ee7d49ab/9b664/profile-pic.jpg 1x,
+/static/88bdfc69a1a033256cdc9417ee7d49ab/06a10/profile-pic.jpg 1.5x,
+/static/88bdfc69a1a033256cdc9417ee7d49ab/f1b5a/profile-pic.jpg 2x" src="/static/88bdfc69a1a033256cdc9417ee7d49ab/9b664/profile-pic.jpg" alt="[object Object]" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div><p><small>セキュリティ, エクスプロイト, Tor, 仮想化とか　-　written by &quot;_spxn&quot;</small><br/>　<a href="https://twitter.com/_spxn"><i class="fa fa-twitter"></i></a>　<a href="https://twitter.com/_superconsole"><i class="fa fa-twitter"></i>&#x27;</a>　<a href="https://github.com/SuperConsole"><i class="fa fa-github"></i></a>　<a href="https://soundcloud.com/SuperConsole"><i class="fa fa-soundcloud"></i></a>　<a href="https://www.youtube.com/channel/UCtfFkG9H7xVMiPCcmGdpN_A/videos"><i class="fa fa-youtube"></i></a>　</p></div></footer></article><nav><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"><li><a rel="prev" href="/190824/">← <!-- -->Linuxカーネルにおける権限昇格(DirtyCOW:CVE-2016-5195)の脆弱性検証</a></li><li></li></ul></nav></main><footer><small>© Built with Gatsby <!-- -->2020<!-- --> / SuperConsole</small></footer></div></div></div><script>
+  
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'UA-141914707-2', 'auto', {});
+      
+      
+      
+      
+      
+      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/200310/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-ec620e4f0819bf2d2710.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-befb6b4c5b306d7aaee2.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-c3ad7a3a4bea24b35a9e.js"],"component---src-pages-404-js":["/component---src-pages-404-js-f15e0e6c821854cca5f9.js"],"component---src-pages-index-js":["/component---src-pages-index-js-d3011ae790e4404603c6.js"]};/*]]>*/</script><script src="/webpack-runtime-ba18fc302e729c2d83ae.js" async=""></script><script src="/commons-18b4e8b46e1e892777f3.js" async=""></script><script src="/styles-16a2c02d72161eebe610.js" async=""></script><script src="/component---src-templates-blog-post-js-c3ad7a3a4bea24b35a9e.js" async=""></script><script src="/app-ec620e4f0819bf2d2710.js" async=""></script></body></html>
